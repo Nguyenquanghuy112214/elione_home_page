@@ -1,0 +1,67 @@
+import { Home, MapPin } from "lucide-react";
+import React from "react";
+
+function Contact() {
+  return (
+    <div>
+      <div className="title_footer mb-5">Liên hệ</div>
+      <div className=" flex flex-col items-start justify-start gap-y-1 ">
+        <div className=" flex items-center justify-start gap-x-2">
+          <Home
+            size={20}
+            className=" text-secondary"
+            strokeWidth={2.25}
+            absoluteStrokeWidth
+          />
+          <span className=" uppercase font-medium text-[15px]">
+            Công ty cổ phần công nghệ giáo dục DHK
+          </span>
+        </div>
+        <div className=" flex items-center justify-start gap-x-2 ">
+          <MapPin
+            size={20}
+            className=" text-secondary"
+            strokeWidth={2.25}
+            absoluteStrokeWidth
+          />
+          <span className=" text-[12px]">
+            No7D-LK19, khu dịch vụ Van Phúc, Phường Vạn Phúc,
+            <br />
+             Quận Hà Đông, Thành phố Hà Nội, Việt Nam
+          </span>
+        </div>
+      </div>
+      <div className=" uppercase font-semibold my-4">
+        Hệ thống anh ngữ thực hành quốc tế elione
+      </div>
+      <div className=" flex flex-col items-start justify-start gap-y-1 ">
+        <div className=" flex items-center justify-start gap-x-2">
+          <Home
+            size={20}
+            className=" text-secondary"
+            strokeWidth={2.25}
+            absoluteStrokeWidth
+          />
+          <span className=" uppercase font-medium text-[15px]">
+            elione đại kim
+          </span>
+        </div>
+        <div className=" flex items-center justify-start gap-x-2 ">
+          <MapPin
+            size={20}
+            className=" text-secondary"
+            strokeWidth={2.25}
+            absoluteStrokeWidth
+          />
+          <span className=" text-[12px]">
+            Số 29/282 Kim Giang, Đại Kim, Hoàng Mai, Hà Nội
+            <br />
+            HOTLINE: 0889 515 888
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Contact;
