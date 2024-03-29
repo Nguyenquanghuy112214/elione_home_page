@@ -21,7 +21,7 @@ module.exports = {
       'xl': '1281px',
       // => @media (min-width: 1280px) { ... }
 
-      '2xl': '1536px',
+      '2xl': '1736px',
       // => @media (min-width: 1536px) { ... }
     },
     container: {
@@ -37,7 +37,7 @@ module.exports = {
         md: '728px',
         lg: '984px',
         xl: '1240px',
-        '2xl': '1396px',
+        '2xl': '1296px',
       }
     },
     extend: {

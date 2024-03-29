@@ -12,11 +12,17 @@ import Image from "next/image";
 import { icons } from "@/public/img";
 function Partner() {
   return (
-    <div className=" container mb-10">
-      <div className=" text-center font-medium uppercase sm:text-[26px] md:text-[32px] my-10">
+    <div className=" container my-14">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        className=" text-center font-medium uppercase sm:text-[26px] md:text-[32px] my-14"
+      >
         Đối tác
       </div>
       <Swiper
+        data-aos="zoom-in"
+        data-aos-duration="1000"
         autoplay={{ delay: 1000 }}
         navigation={true}
         loop={true}

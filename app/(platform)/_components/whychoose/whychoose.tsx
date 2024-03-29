@@ -30,9 +30,19 @@ function WhyChoose() {
     },
   ];
   return (
-    <div className=" mt-10">
-      <div className=" sm:text-[26px] md:text-[32px] uppercase mb-10 text-center font-semibold">Vì Sao Elione được phụ huynh tin tưởng lựa chọn</div>
-      <div className=" container grid grid-cols-12 md:gap-x-5 sm:gap-y-8">
+    <div className=" my-10">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        className=" sm:text-[26px] md:text-[32px] uppercase my-10 text-center font-semibold"
+      >
+        Vì Sao Elione được phụ huynh tin tưởng lựa chọn
+      </div>
+      <div
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        className=" container grid grid-cols-12 md:gap-x-10 sm:gap-y-8"
+      >
         {data?.map((item, index) => (
           <WhyChooseItem
             key={index}

@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import VideoCourse from "./videocourse";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
@@ -16,15 +15,16 @@ import "swiper/css/effect-creative";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-function Course() {
+import VideoEvaluate from "./videoevaluate";
+function Evaluate() {
   return (
-    <div className=" container mt-[100px] mb-14">
-      <div
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        className=" text-center font-medium uppercase sm:text-[26px] md:text-[32px] my-14"
-      >
-        Thông tin các khóa học
+    <div
+  
+      className=" container my-14"
+    >
+      <div   data-aos="fade-up"
+        data-aos-duration="1000" className=" text-center font-medium uppercase sm:text-[26px] md:text-[32px] my-14">
+        Đánh giá của phụ huynh
       </div>
       <Swiper
         data-aos="zoom-in"
@@ -53,26 +53,26 @@ function Course() {
         className=" swiper-course !pb-10"
       >
         <SwiperSlide>
-          <VideoCourse />
+          <VideoEvaluate />
         </SwiperSlide>
         <SwiperSlide>
-          <VideoCourse />
+          <VideoEvaluate />
         </SwiperSlide>
         <SwiperSlide>
-          <VideoCourse />
+          <VideoEvaluate />
         </SwiperSlide>
         <SwiperSlide>
-          <VideoCourse />
+          <VideoEvaluate />
         </SwiperSlide>
         <SwiperSlide>
-          <VideoCourse />
+          <VideoEvaluate />
         </SwiperSlide>
         <SwiperSlide>
-          <VideoCourse />
+          <VideoEvaluate />
         </SwiperSlide>
       </Swiper>
     </div>
   );
 }
 
-export default Course;
+export default Evaluate;

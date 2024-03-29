@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-// import { AOSInit } from "@/lib/aos";
+import { AOSInit } from "@/lib/aos";
 import GlobalStyles from "@/sass/GlobalStyles/GlobalStyles";
-
+import Parallax from "@/lib/parallax";
 const myFont = localFont({
   src: "../assets/fonts/PatrickHand-Regular.ttf",
 });
@@ -19,9 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* <AOSInit /> */}
+      <AOSInit />
       <GlobalStyles>
-        <body >{children}</body>
+        <Parallax>
+          <body>{children}</body>
+        </Parallax>
       </GlobalStyles>
     </html>
   );

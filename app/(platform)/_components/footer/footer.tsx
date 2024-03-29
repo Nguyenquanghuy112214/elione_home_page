@@ -9,10 +9,14 @@ function Footer() {
     <div className=" ">
       <Separator className=" w-full h-2 bg-secondary"></Separator>
       <Separator className=" w-full h-1 bg-primary"></Separator>
-      <div className=" grid container grid-cols-12 gap-y-10 py-8 min-h-[200px]">
+      <div
+        data-aos="zoom-down"
+        data-aos-duration="1000"
+        className=" grid container grid-cols-12 gap-y-10 py-8 min-h-[200px]"
+      >
         <div className=" sm:col-span-12 md:col-span-6 lg:col-span-3">
           {" "}
-        <LogoFooter/>
+          <LogoFooter />
         </div>
         <div className=" sm:col-span-12 md:col-span-6 lg:col-span-3">
           <FooterItem />
