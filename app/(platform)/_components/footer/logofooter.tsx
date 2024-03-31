@@ -1,3 +1,5 @@
+"use client";
+
 import { icons } from "@/public/img";
 import { Facebook, Instagram, LocateOffIcon, Twitter } from "lucide-react";
 import Image from "next/image";

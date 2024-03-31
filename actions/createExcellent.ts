@@ -1,0 +1,30 @@
+"use server";
+
+import * as z from "zod";
+
+import { db } from "@/lib/db";
+import { createProcessSchema } from "@/schemas";
+import { revalidatePath } from "next/cache";
+
+export const createExcellent = async (
+  values: z.infer<typeof createProcessSchema>
+) => {
+  const validatedFields = createProcessSchema.safeParse(values);
+
+  if (!validatedFields.success) {
+    return { error: "Invalid fields!" };
+  }
+
+  const { img, title } = validatedFields.data;
+
+  await db.excellent.create({
+    data: {
+      img,
+      title,
+    },
+  });
+
+  revalidatePath("/dashboard/excellent");
+  revalidatePath("/");
+  return { success: "Create Success!" };
+};

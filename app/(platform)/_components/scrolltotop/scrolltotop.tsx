@@ -1,3 +1,5 @@
+"use client";
+
 import { ChevronUp } from "lucide-react";
 import ScrollToTop from "react-scroll-to-top";
 

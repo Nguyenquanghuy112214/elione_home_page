@@ -1,3 +1,5 @@
+"use client";
+
 import { Input } from "@/components/ui/input";
 import { Mail, PhoneCall, Search } from "lucide-react";
 import React from "react";

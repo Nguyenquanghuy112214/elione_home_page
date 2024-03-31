@@ -1,3 +1,5 @@
+"use client";
+
 import { Home, MapPin } from "lucide-react";
 import React from "react";
 

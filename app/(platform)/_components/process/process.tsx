@@ -1,3 +1,5 @@
+"use client";
+
 import { icons } from '@/public/img'
 import Image from 'next/image'
 import React from 'react'

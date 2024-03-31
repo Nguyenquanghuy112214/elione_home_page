@@ -1,3 +1,5 @@
+"use client";
+
 import { icons } from "@/public/img";
 import { ChevronRight, MoveRight } from "lucide-react";
 import Image from "next/image";
