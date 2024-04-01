@@ -16,7 +16,9 @@ import "swiper/css/effect-creative";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-function Course() {
+import { Course } from "@prisma/client";
+
+function CourseCl({ data }: { data: Course[] }) {
   return (
     <div className=" container mt-[100px] mb-14">
       <div
@@ -52,27 +54,14 @@ function Course() {
         modules={[Pagination, Navigation]}
         className=" swiper-course !pb-10"
       >
-        <SwiperSlide>
-          <VideoCourse />
-        </SwiperSlide>
-        <SwiperSlide>
-          <VideoCourse />
-        </SwiperSlide>
-        <SwiperSlide>
-          <VideoCourse />
-        </SwiperSlide>
-        <SwiperSlide>
-          <VideoCourse />
-        </SwiperSlide>
-        <SwiperSlide>
-          <VideoCourse />
-        </SwiperSlide>
-        <SwiperSlide>
-          <VideoCourse />
-        </SwiperSlide>
+        {data?.map((item, i) => (
+          <SwiperSlide key={i}>
+            <VideoCourse item={item} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
 }
 
-export default Course;
+export default CourseCl;

@@ -5,8 +5,9 @@ import React from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Image from "next/image";
 import { icons } from "@/public/img";
+import { Evaluate } from "@prisma/client";
 
-function VideoEvaluate() {
+function VideoEvaluate({item}:{item:Evaluate}) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -18,7 +19,7 @@ function VideoEvaluate() {
           >
             <Image
               fill
-              src={icons.banner1}
+              src={item?.img}
               alt="img"
               className=" object-cover"
             />
@@ -34,8 +35,7 @@ function VideoEvaluate() {
       </DialogTrigger>
       <div className=" px-4 py-2 border-[2px] border-solid border-[#ccc] shadow-md">
         <div className=" text-secondary mb-2 leading-5 font-semibold text-[15px]">
-          Con tôi là đứa trẻ ghét nhất mông tiếng Anh tôi đã bất lục và không
-          tìm được phương pháp cho đến khi giới thiệu đến trung tâm ELIONE
+        {item?.title}
         </div>
         <div className=" flex items-center justify-end">
           {[1, 2, 3, 4, 5].map((item, index) => (
@@ -55,7 +55,7 @@ function VideoEvaluate() {
             strokeWidth={2.25}
             absoluteStrokeWidth
           />
-          Phụ huynh học viên:
+          Phụ huynh học viên: {item?.parentstudent}
         </div>
         <div className=" flex md:items-center sm:flex-col sm:items-start sm:gap-x-0 sm:gap-y-2 md:justify-between md:flex-row md:gap-x-6 mt-2">
           <div className=" flex items-center justify-start gap-x-1">
@@ -65,7 +65,7 @@ function VideoEvaluate() {
               strokeWidth={2.25}
               absoluteStrokeWidth
             />
-            Thành tích:
+            Thành tích: {item?.achievements}
           </div>
           <div className=" flex items-center justify-start gap-x-1">
             <School
@@ -74,7 +74,7 @@ function VideoEvaluate() {
               strokeWidth={2.25}
               absoluteStrokeWidth
             />
-            Lớp học: A7
+            Lớp học: {item?.class}
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@ function VideoEvaluate() {
         <video playsInline controls loop>
           <source
             src={
-              "https://res.cloudinary.com/dn4nxz7f0/video/upload/v1594348575/Pexels_Videos_1093655_pr26ax.mp4"
+             item?.video
             }
             type="video/mp4"
           />

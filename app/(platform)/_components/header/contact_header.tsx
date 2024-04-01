@@ -1,10 +1,11 @@
 "use client";
 
 import { Input } from "@/components/ui/input";
+import { Contact } from "@prisma/client";
 import { Mail, PhoneCall, Search } from "lucide-react";
 import React from "react";
 
-function ContactHeader() {
+function ContactHeader({dataContact}:{dataContact:Contact[]}) {
   return (
     <div className=" border-b-[1px] border-primary border-solid ">
       <div className=" flex items-center justify-between pb-1">
@@ -12,19 +13,19 @@ function ContactHeader() {
           <div className=" flex gap-x-[6px]">
             <PhoneCall className=" text-secondary" />
             <span className=" font-bold italic text-secondary">
-              0889 515 888
+              {dataContact[0]?.phone}
             </span>
           </div>
           <div className=" flex gap-x-[6px]">
             <Mail className=" font-bold text-secondary" />
             <span className=" font-medium italic text-secondary">
-              hr.elione@gmail.com
+            {dataContact[0]?.mail}
             </span>
           </div>
         </div>
         <div className=" flex gap-x-4">
           <div className=" text-secondary uppercase md:hidden lg:block">
-            Hệ Thống Anh Ngữ Thực Hành Quốc Tế Elione
+          {dataContact[0]?.slogan}
           </div>
           <div className=" relative group">
             <Search className=" text-secondary" />

@@ -15,12 +15,15 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
-import { icons } from "@/public/img";
-function Excellent() {
+import { Excellent } from "@prisma/client";
+function ExcellentCl({ data }: { data: Excellent[] }) {
   return (
     <div className=" container my-14">
-      <div   data-aos="fade-up"
-        data-aos-duration="1000" className=" text-center font-medium uppercase sm:text-[26px] md:text-[32px] my-14">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        className=" text-center font-medium uppercase sm:text-[26px] md:text-[32px] my-14"
+      >
         Học viên xuất sắc
       </div>
       <Swiper
@@ -49,142 +52,22 @@ function Excellent() {
         modules={[Pagination, Navigation]}
         className=" swiper-course !pb-10"
       >
-        <SwiperSlide>
-          <div>
-            <Image
-              src={icons.banner1}
-              alt="img"
-              width={500}
-              height={500}
-              className=" w-full h-[300px] object-cover"
-            />
-          </div>
-        </SwiperSlide>
-      
-        <SwiperSlide>
-          <div>
-            <Image
-              src={icons.banner1}
-              alt="img"
-              width={500}
-              height={500}
-              className=" w-full h-[300px] object-cover"
-            />
-          </div>
-        </SwiperSlide>
-      
-        <SwiperSlide>
-          <div>
-            <Image
-              src={icons.banner1}
-              alt="img"
-              width={500}
-              height={500}
-              className=" w-full h-[300px] object-cover"
-            />
-          </div>
-        </SwiperSlide>
-      
-        <SwiperSlide>
-          <div>
-            <Image
-              src={icons.banner1}
-              alt="img"
-              width={500}
-              height={500}
-              className=" w-full h-[300px] object-cover"
-            />
-          </div>
-        </SwiperSlide>
-      
-        <SwiperSlide>
-          <div>
-            <Image
-              src={icons.banner1}
-              alt="img"
-              width={500}
-              height={500}
-              className=" w-full h-[300px] object-cover"
-            />
-          </div>
-        </SwiperSlide>
-      
-        <SwiperSlide>
-          <div>
-            <Image
-              src={icons.banner1}
-              alt="img"
-              width={500}
-              height={500}
-              className=" w-full h-[300px] object-cover"
-            />
-          </div>
-        </SwiperSlide>
-      
-        <SwiperSlide>
-          <div>
-            <Image
-              src={icons.banner1}
-              alt="img"
-              width={500}
-              height={500}
-              className=" w-full h-[300px] object-cover"
-            />
-          </div>
-        </SwiperSlide>
-      
-        <SwiperSlide>
-          <div>
-            <Image
-              src={icons.banner1}
-              alt="img"
-              width={500}
-              height={500}
-              className=" w-full h-[300px] object-cover"
-            />
-          </div>
-        </SwiperSlide>
-      
-        <SwiperSlide>
-          <div>
-            <Image
-              src={icons.banner1}
-              alt="img"
-              width={500}
-              height={500}
-              className=" w-full h-[300px] object-cover"
-            />
-          </div>
-        </SwiperSlide>
-      
-        <SwiperSlide>
-          <div>
-            <Image
-              src={icons.banner1}
-              alt="img"
-              width={500}
-              height={500}
-              className=" w-full h-[300px] object-cover"
-            />
-          </div>
-        </SwiperSlide>
-      
-        <SwiperSlide>
-          <div>
-            <Image
-              src={icons.banner1}
-              alt="img"
-              width={500}
-              height={500}
-              className=" w-full h-[300px] object-cover"
-            />
-          </div>
-        </SwiperSlide>
-      
-     
+        {data?.map((item, i) => (
+          <SwiperSlide key={i}>
+            <div>
+              <Image
+                src={item?.img}
+                alt="img"
+                width={500}
+                height={500}
+                className=" w-full h-[300px] object-cover"
+              />
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
 }
 
-export default Excellent;
+export default ExcellentCl;

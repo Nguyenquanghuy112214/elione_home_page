@@ -9,7 +9,10 @@ export type ModalType =
   | "deleteExcellent"
   | "createPartner"
   | "editPartner"
-  | "deletePartner";
+  | "deletePartner"
+  | "createExpert"
+  | "editExpert"
+  | "deleteExpert";
 
 export type DataModal = {
   id: string;

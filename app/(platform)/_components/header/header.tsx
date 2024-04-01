@@ -5,7 +5,8 @@ import ContactHeader from "./contact_header";
 import MenuMb from "./menu_mb";
 import ScrollToTopButton from "../scrolltotop/scrolltotop";
 import { AOSInit } from "@/lib/aos";
-function Header() {
+import { Contact } from "@prisma/client";
+function Header({dataContact}:{dataContact:Contact[]}) {
   const menu = [
     {
       title: "Giới thiệu",
@@ -61,7 +62,7 @@ function Header() {
       <div className="container grid grid-cols-12 sm:hidden md:grid pt-5">
         <div className=" col-span-3"></div>
         <div className=" col-span-9">
-          <ContactHeader />
+          <ContactHeader dataContact={dataContact}/>
         </div>
       </div>
       <div className=" nav shadow-xl scroll-smooth">

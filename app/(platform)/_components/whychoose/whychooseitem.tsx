@@ -1,5 +1,6 @@
 "use client";
 
+import { PreviewReactQuill } from "@/components/preview-reactquill";
 import Image from "next/image";
 import React from "react";
 
@@ -26,7 +27,8 @@ function WhyChooseItem({
       <div className=" bg-secondary skew-x-12 text-black uppercase mb-3 relative italic px-2 py-1 text-center font-semibold">
         {title}
       </div>
-      <div className=" text-justify tracking-tighter">{description}</div>
+      <div className=" text-justify tracking-tighter ">
+        <PreviewReactQuill value={description}/></div>
     </div>
   );
 }

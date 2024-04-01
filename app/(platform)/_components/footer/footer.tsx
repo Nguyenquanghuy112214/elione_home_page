@@ -2,11 +2,21 @@
 
 import { Separator } from "@/components/ui/separator";
 import React from "react";
-import FooterItem from "./footeritem";
-import Contact from "./contact";
 import LogoFooter from "./logofooter";
+import { Contact, Course, Expert } from "@prisma/client";
+import FooterItem1 from "./footeritem1";
+import FooterItem2 from "./footeritem2";
+import ContactCl from "./contact";
 
-function Footer() {
+function Footer({
+  dataCourse,
+  dataExpert,
+  dataContact
+}: {
+  dataCourse: Course[];
+  dataExpert: Expert[];
+  dataContact:Contact[]
+}) {
   return (
     <div className=" ">
       <Separator className=" w-full h-2 bg-secondary"></Separator>
@@ -18,16 +28,16 @@ function Footer() {
       >
         <div className=" sm:col-span-12 md:col-span-6 lg:col-span-3">
           {" "}
-          <LogoFooter />
+          <LogoFooter dataContact={dataContact}/>
         </div>
         <div className=" sm:col-span-12 md:col-span-6 lg:col-span-3">
-          <FooterItem />
+          <FooterItem1 dataCourse={dataCourse} />
         </div>
         <div className=" sm:col-span-12 md:col-span-6 lg:col-span-3">
-          <FooterItem />
+          <FooterItem2 dataExpert={dataExpert}/>
         </div>
         <div className=" sm:col-span-12 md:col-span-6 lg:col-span-3">
-          <Contact />
+          <ContactCl dataContact={dataContact}/>
         </div>
       </div>
       <Separator className=" w-full h-8 bg-secondary"></Separator>

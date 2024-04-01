@@ -16,6 +16,7 @@ export const PreviewReactQuill = ({
 
   return (
     <ReactQuill
+    className=" !text-base"
       theme="bubble"
       value={value}
       readOnly

@@ -10,7 +10,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
 import { icons } from "@/public/img";
-function Partner() {
+import { Partner } from "@prisma/client";
+function PartnerCl({data}:{data:Partner[]}) {
   return (
     <div className=" container my-14">
       <div
@@ -45,10 +46,10 @@ function Partner() {
         modules={[Navigation, Autoplay]}
         className=" swiper-course !pb-10"
       >
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((item, index) => (
-          <SwiperSlide key={index}>
+        {data?.map((item, i) => (
+          <SwiperSlide key={i}>
             <Image
-              src={icons.banner1}
+              src={item?.img}
               alt="img"
               width={400}
               height={400}
@@ -61,4 +62,4 @@ function Partner() {
   );
 }
 
-export default Partner;
+export default PartnerCl;

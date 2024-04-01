@@ -1,16 +1,18 @@
 "use client";
 
+import { PreviewReactQuill } from "@/components/preview-reactquill";
 import { icons } from "@/public/img";
+import { Information } from "@prisma/client";
 import { ChevronRight, MoveRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
-function InfomationItem() {
+function InfomationItem({ item }: { item: Information }) {
   return (
     <div className=" sm:col-span-12 md:col-span-6 lg:col-span-3 border-[2px] border-solid border-[#ccc] shadow-md">
       <div>
         <Image
-          src={icons.children}
+          src={item?.img}
           alt="img"
           width={200}
           height={100}
@@ -19,14 +21,10 @@ function InfomationItem() {
       </div>
       <div className="px-4 py-2 ">
         <div className=" text-secondary mb-2 leading-5 font-semibold text-[15px]">
-          Con tôi là đứa trẻ ghét nhất mông tiếng Anh tôi đã bất lục và không
-          tìm được phương pháp cho đến khi giới thiệu đến trung tâm ELIONE
+          {item?.title}
         </div>
         <div>
-          Điểm mạnh của du học Anh so với các quốc gia nằm ở chương trình học
-          ngắn. Các khoa học tại Anh thường có thời gian học ngắn hơn so với các
-          nước khác. Chương trình Cử nhân sẽ kéo dài 3 năm và chương trình Thạc
-          sĩ kéo dài khoảng 1 năm
+          <PreviewReactQuill value={item?.description} />
         </div>
         <div className=" flex items-center justify-end ">
           <MoveRight

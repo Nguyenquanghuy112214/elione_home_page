@@ -16,14 +16,15 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import VideoEvaluate from "./videoevaluate";
-function Evaluate() {
+import { Evaluate } from "@prisma/client";
+function EvaluateCl({ data }: { data: Evaluate[] }) {
   return (
-    <div
-  
-      className=" container my-14"
-    >
-      <div   data-aos="fade-up"
-        data-aos-duration="1000" className=" text-center font-medium uppercase sm:text-[26px] md:text-[32px] my-14">
+    <div className=" container my-14">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        className=" text-center font-medium uppercase sm:text-[26px] md:text-[32px] my-14"
+      >
         Đánh giá của phụ huynh
       </div>
       <Swiper
@@ -52,27 +53,14 @@ function Evaluate() {
         modules={[Pagination, Navigation]}
         className=" swiper-course !pb-10"
       >
-        <SwiperSlide>
-          <VideoEvaluate />
-        </SwiperSlide>
-        <SwiperSlide>
-          <VideoEvaluate />
-        </SwiperSlide>
-        <SwiperSlide>
-          <VideoEvaluate />
-        </SwiperSlide>
-        <SwiperSlide>
-          <VideoEvaluate />
-        </SwiperSlide>
-        <SwiperSlide>
-          <VideoEvaluate />
-        </SwiperSlide>
-        <SwiperSlide>
-          <VideoEvaluate />
-        </SwiperSlide>
+        {data?.map((item, i) => (
+          <SwiperSlide key={i}>
+            <VideoEvaluate item={item} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
 }
 
-export default Evaluate;
+export default EvaluateCl;

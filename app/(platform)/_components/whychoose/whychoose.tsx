@@ -1,34 +1,11 @@
 import { icons } from "@/public/img";
 import React from "react";
 import WhyChooseItem from "./whychooseitem";
+import { getWhyChoose } from "@/data/whychoose";
+import { WhyChoose } from "@prisma/client";
 
-function WhyChoose() {
-  const data = [
-    {
-      img: icons.banner1,
-      title: "đội ngũ chuyên gia hàng đầu việt nam",
-      description:
-        "Giá trình ELIONE được thiết kế độc quyền chuẩn quốc tế. Giáo trình được thiết kế riêng việt, chuẩn hóa về nội dung và phương thức áp dụng",
-    },
-    {
-      img: icons.banner2,
-      title: "đội ngũ chuyên gia hàng đầu việt nam",
-      description:
-        "Giá trình ELIONE được thiết kế độc quyền chuẩn quốc tế. Giáo trình được thiết kế riêng việt, chuẩn hóa về nội dung và phương thức áp dụng",
-    },
-    {
-      img: icons.banner3,
-      title: "đội ngũ chuyên gia hàng đầu việt nam",
-      description:
-        "Giá trình ELIONE được thiết kế độc quyền chuẩn quốc tế. Giáo trình được thiết kế riêng việt, chuẩn hóa về nội dung và phương thức áp dụng",
-    },
-    {
-      img: icons.banner1,
-      title: "đội ngũ chuyên gia hàng đầu việt nam",
-      description:
-        "Giá trình ELIONE được thiết kế độc quyền chuẩn quốc tế. Giáo trình được thiết kế riêng việt, chuẩn hóa về nội dung và phương thức áp dụng",
-    },
-  ];
+async function WhyChooseCl({data}:{data:WhyChoose[]}) {
+ 
   return (
     <div className=" my-10">
       <div
@@ -56,4 +33,4 @@ function WhyChoose() {
   );
 }
 
-export default WhyChoose;
+export default WhyChooseCl;
