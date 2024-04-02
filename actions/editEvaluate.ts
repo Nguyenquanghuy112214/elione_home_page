@@ -3,49 +3,37 @@
 import * as z from "zod";
 
 import { db } from "@/lib/db";
-import { editContactSchema } from "@/schemas";
+import {  editEvaluateSchema } from "@/schemas";
 import { revalidatePath } from "next/cache";
 
-export const editContact = async (
-  values: z.infer<typeof editContactSchema>
+export const editEvaluate = async (
+  values: z.infer<typeof editEvaluateSchema>
 ) => {
-  const validatedFields = editContactSchema.safeParse(values);
+  const validatedFields = editEvaluateSchema.safeParse(values);
 
   if (!validatedFields.success) {
     return { error: "Invalid fields!" };
   }
 
-  const {
-    id,
-    logo,
-    sublogo,
-    slogan,
-    namecompany,
-    addresscompany,
-    namecenter,
-    addresscenter,
-    mail,
-    phone,
-  } = validatedFields.data;
+  const { id, img, video, title, star, parentstudent, achievements, class_g } =
+    validatedFields.data;
 
-  await db.contact.update({
+  await db.evaluate.update({
     where: {
       id,
     },
     data: {
-      logo,
-      sublogo,
-      slogan,
-      namecompany,
-      addresscompany,
-      namecenter,
-      addresscenter,
-      mail,
-      phone,
+      img,
+      video,
+      title,
+      star,
+      parentstudent,
+      achievements,
+      class:class_g,
     },
   });
 
-  revalidatePath("/dashboard/contact");
+  revalidatePath("/dashboard/evaluate");
   revalidatePath("/");
   return { success: "Update Success!" };
 };

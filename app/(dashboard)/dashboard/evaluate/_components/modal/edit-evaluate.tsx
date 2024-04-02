@@ -25,10 +25,12 @@ import { Button } from "@/components/ui/button";
 
 import Image from "next/image";
 import toast from "react-hot-toast";
-import {  editEvaluateSchema } from "@/schemas";
-import { useEffect } from "react";
+import { editCourseSchema, editEvaluateSchema } from "@/schemas";
+import { useEffect, useState } from "react";
+import { editCourse } from "@/actions/editCourse";
 import { useModalEvaluate } from "@/hooks/use-modal-evaluate";
 import { editEvaluate } from "@/actions/editEvaluate";
+import { createRouteLoader } from "next/dist/client/route-loader";
 
 export const EditValuateModal = () => {
   const { isOpen, onClose, type, data } = useModalEvaluate();
@@ -81,11 +83,10 @@ export const EditValuateModal = () => {
         "http://resource.bksgroup.vn/upload",
         videoData
       );
-      console.log("setvideo");
-
       // Cập nhật giá trị của trường video trong form
       form.setValue("video", res.data.file_url);
     },
+
   });
 
   const isModalOpen = isOpen && type === "editEvaluate";
@@ -243,7 +244,6 @@ export const EditValuateModal = () => {
                     );
                   }}
                 />
-               
               </div>
               <div className=" col-span-1">
                 <FormField
@@ -277,8 +277,6 @@ export const EditValuateModal = () => {
                   control={form.control}
                   name="video"
                   render={({ field }) => {
-                    console.log("field", field);
-
                     return (
                       <FormItem>
                         <FormLabel className="  uppercase text-xs font-bold text-zinc-500 dark:text-secondary/">
@@ -293,7 +291,7 @@ export const EditValuateModal = () => {
                               className="w-full h-full object-cover rounded-md border shadow-sm"
                               controls
                             >
-                              <source src={field.value} type="video/mp4" />
+                              <source src={field.value} />
                               Your browser does not support the video tag.
                             </video>
                           </div>

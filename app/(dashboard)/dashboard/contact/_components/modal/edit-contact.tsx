@@ -27,7 +27,7 @@ import Image from "next/image";
 import toast from "react-hot-toast";
 import { editContactSchema, editEvaluateSchema } from "@/schemas";
 import { useEffect } from "react";
-import { editContact } from "@/actions/editEvaluate";
+import { editContact } from "@/actions/editContact";
 import { useModalContact } from "@/hooks/use-modal-contact";
 
 export const EditContactModal = () => {

@@ -6,8 +6,15 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Image from "next/image";
 import { icons } from "@/public/img";
 import { Evaluate } from "@prisma/client";
+import _ from "lodash";
 
-function VideoEvaluate({item}:{item:Evaluate}) {
+function VideoEvaluate({ item }: { item: Evaluate }) {
+  const numberStar = Number(item?.star);
+  const numberStarOff = 5 - Number(item?.star);
+
+  const newStar = _.times(numberStar, _.constant(numberStar));
+  const newStarOff = _.times(numberStarOff, _.constant(numberStarOff));
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -17,12 +24,7 @@ function VideoEvaluate({item}:{item:Evaluate}) {
               " relative  videodemo cursor-pointer  bg-center bg-cover bg-no-repeat sm:h-[100px] md:h-[200px]  flex items-center justify-center flex-col gap-7 "
             )}
           >
-            <Image
-              fill
-              src={item?.img}
-              alt="img"
-              className=" object-cover"
-            />
+            <Image fill src={item?.img} alt="img" className=" object-cover" />
             {/* <div className={cn(" text-white text-2xl font-bold relative z-50")}>
               title
             </div> */}
@@ -35,18 +37,35 @@ function VideoEvaluate({item}:{item:Evaluate}) {
       </DialogTrigger>
       <div className=" px-4 py-2 border-[2px] border-solid border-[#ccc] shadow-md">
         <div className=" text-secondary mb-2 leading-5 font-semibold text-[15px]">
-        {item?.title}
+          {item?.title}
         </div>
         <div className=" flex items-center justify-end">
-          {[1, 2, 3, 4, 5].map((item, index) => (
-            <Star
-            key={index}
-              size={20}
-              color="#ccc"
-              strokeWidth={1.2}
-              absoluteStrokeWidth
-            />
-          ))}
+          {newStar?.map((item, index) => {
+            if (index < 5) {
+              return (
+                <Star
+                  key={index}
+                  size={20}
+                  className=" text-yellow-300"
+                  strokeWidth={1.2}
+                  absoluteStrokeWidth
+                />
+              );
+            }
+          })}
+          {newStarOff?.map((item, index) => {
+            if (index < 5) {
+              return (
+                <Star
+                  key={index}
+                  size={20}
+                  color="#ccc"
+                  strokeWidth={1.2}
+                  absoluteStrokeWidth
+                />
+              );
+            }
+          })}
         </div>
         <div className=" flex items-center justify-start gap-x-1 text-black">
           <User
@@ -80,12 +99,7 @@ function VideoEvaluate({item}:{item:Evaluate}) {
       </div>
       <DialogContent className=" flex items-center justify-center bg-transparent border-none !p-1">
         <video playsInline controls loop>
-          <source
-            src={
-             item?.video
-            }
-            type="video/mp4"
-          />
+          <source src={item?.video} type="video/mp4" />
         </video>
       </DialogContent>
     </Dialog>
