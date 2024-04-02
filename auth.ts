@@ -21,7 +21,7 @@ export const {
     signIn: "/auth/login",
     error: "/auth/error",
   },
-
+  trustHost: true,
   callbacks: {
     async signIn({ user, account }) {
       console.log("user", user);
