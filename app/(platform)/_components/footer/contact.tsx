@@ -5,6 +5,9 @@ import { Home, MapPin } from "lucide-react";
 import React from "react";
 
 function ContactCl({ dataContact }: { dataContact: Contact[] }) {
+  if (!!dataContact && !!dataContact[0]) {
+    return null;
+  }
   return (
     <div>
       <div className="title_footer mb-5">Liên hệ</div>

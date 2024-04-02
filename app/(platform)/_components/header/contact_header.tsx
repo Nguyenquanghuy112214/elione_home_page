@@ -6,6 +6,9 @@ import { Mail, PhoneCall, Search } from "lucide-react";
 import React from "react";
 
 function ContactHeader({dataContact}:{dataContact:Contact[]}) {
+  if (!!dataContact && !!dataContact[0]) {
+    return null;
+  }
   return (
     <div className=" border-b-[1px] border-primary border-solid ">
       <div className=" flex items-center justify-between pb-1">

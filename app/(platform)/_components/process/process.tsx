@@ -5,6 +5,9 @@ import Image from 'next/image'
 import React from 'react'
 
 function ProcessCl({data}:{data:Process[]}) {
+  if (!!data && !!data[0]) {
+    return null;
+  }
   return (
     <div className=' container'>
         <div data-aos="fade-up"  data-aos-duration="1000" className=' text-center font-medium uppercase sm:text-[26px] md:text-[32px] my-14'>Lộ trình học tại elione</div>
