@@ -5,7 +5,7 @@ import Image from 'next/image'
 import React from 'react'
 
 function ProcessCl({data}:{data:Process[]}) {
-  if (!!data && !!data[0]) {
+  if (!data) {
     return null;
   }
   return (

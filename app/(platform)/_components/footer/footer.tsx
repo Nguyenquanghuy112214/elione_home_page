@@ -18,7 +18,7 @@ function Footer({
   dataContact:Contact[]
 }) {
   return (
-    <div className=" ">
+    <div className=" mt-[200px]">
       <Separator className=" w-full h-2 bg-secondary"></Separator>
       <Separator className=" w-full h-1 bg-primary"></Separator>
       <div

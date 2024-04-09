@@ -1,15 +1,11 @@
 import React from "react";
-import Header from "./_components/header/header";
 import Banner from "./_components/banner/banner";
-import Footer from "./_components/footer/footer";
 import { getWhyChoose } from "@/data/whychoose";
 import WhyChooseCl from "./_components/whychoose/whychoose";
 import {
-  Contact,
   Course,
   Evaluate,
   Excellent,
-  Expert,
   Information,
   Partner,
   Process,
@@ -27,8 +23,6 @@ import EvaluateCl from "./_components/evaluate/evaluate";
 import InfomationCl from "./_components/infomation/infomation";
 import PartnerCl from "./_components/partner/partner";
 import { getPartner } from "@/data/partner";
-import { getExpert } from "@/data/expert";
-import { getContact } from "@/data/contact";
 
 async function HomePage() {
   const dataWyChoose = (await getWhyChoose()) as WhyChoose[];
@@ -38,11 +32,8 @@ async function HomePage() {
   const dataEvaluate = (await getEvaluate()) as Evaluate[];
   const dataInformation = (await getInformation()) as Information[];
   const dataPartner = (await getPartner()) as Partner[];
-  const dataExpert = (await getExpert()) as Expert[];
-  const dataContact = (await getContact()) as Contact[];
   return (
     <div>
-      <Header dataContact = {dataContact}/>
       <Banner />
       <WhyChooseCl data = {dataWyChoose}/>
       <ProcessCl data={dataProcess} />
@@ -51,7 +42,6 @@ async function HomePage() {
       <EvaluateCl data={dataEvaluate} />
       <InfomationCl data={dataInformation} />
       <PartnerCl data={dataPartner} />
-      <Footer dataContact = {dataContact} dataCourse = {dataCourse} dataExpert={dataExpert}/>
     </div>
   );
 }

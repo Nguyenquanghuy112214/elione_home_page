@@ -7,7 +7,7 @@ import Image from "next/image";
 import React from "react";
 
 function LogoFooter({dataContact}:{dataContact:Contact[]}) {
-  if (!!dataContact && !!dataContact[0]) {
+  if (!dataContact) {
     return null;
   }
   return (

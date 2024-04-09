@@ -32,11 +32,11 @@ function RegisterPage() {
       const res = await register(values);
       if (!!res.success) {
         toast.success("Đăng ký thành công");
+        router.push("/login");
       } else {
         toast.error("Email đã tồn tại");
       }
       form.reset();
-      // router.push("/");
     } catch (error: any) {
       toast.error("Đăng ký thất bại");
     }

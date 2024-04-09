@@ -6,7 +6,7 @@ import { Mail, PhoneCall, Search } from "lucide-react";
 import React from "react";
 
 function ContactHeader({dataContact}:{dataContact:Contact[]}) {
-  if (!!dataContact && !!dataContact[0]) {
+  if (!dataContact ) {
     return null;
   }
   return (

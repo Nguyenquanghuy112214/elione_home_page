@@ -38,7 +38,7 @@ export default function MenuMb() {
       <SheetContent>
         <ul className=" h-full  items-start justify-start gap-y-4 w-full flex flex-col mt-5">
           {menu.map((item, index) => (
-            <li className=" font-semibold sm:text-sm md:text-base uppercase cursor-pointer hover:bg-secondary hover:text-white w-full sm:p-1 md:p-2 rounded-md transition-all" key={index}>
+            <li className=" font-semibold sm:text-sm md:text-base uppercase cursor-pointer hover:bg-secondary hover:text-white w-full sm:p-2 md:p-2 rounded-md transition-all" key={index}>
               {item?.title}
             </li>
           ))}
@@ -47,3 +47,4 @@ export default function MenuMb() {
     </Sheet>
   );
 }
+

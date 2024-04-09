@@ -23,7 +23,7 @@ function Banner3() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 0.2 }}
-      className=" border-t-[6px] border-b-[6px] border-solid border-primary bg-banner3 bg_10 bg-cover bg-no-repeat sm:h-[460px] md:h-[550px] lg:h-[650px] xl:h-[700px] 2xl:h-[800px]"
+      className="overflow-hidden border-t-[6px] border-b-[6px] border-solid border-primary bg-banner3 bg_10 bg-cover bg-no-repeat sm:h-[460px] md:h-[550px] lg:h-[650px] xl:h-[700px] 2xl:h-[800px]"
     >
       <motion.div
         style={{ y: textY }}

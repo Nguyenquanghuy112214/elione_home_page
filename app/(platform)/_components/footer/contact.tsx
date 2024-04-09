@@ -5,7 +5,7 @@ import { Home, MapPin } from "lucide-react";
 import React from "react";
 
 function ContactCl({ dataContact }: { dataContact: Contact[] }) {
-  if (!!dataContact && !!dataContact[0]) {
+  if (!dataContact) {
     return null;
   }
   return (

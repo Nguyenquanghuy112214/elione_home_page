@@ -2,26 +2,26 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   theme: {
     screens: {
-      'sm': '0px',
+      sm: "0px",
       // => @media (min-width: 640px) { ... }
 
-      'md': '769px',
+      md: "769px",
       // => @media (min-width: 768px) { ... }
 
-      'lg': '1025px',
+      lg: "1025px",
       // => @media (min-width: 1024px) { ... }
 
-      'xl': '1281px',
+      xl: "1281px",
       // => @media (min-width: 1280px) { ... }
 
-      '2xl': '1736px',
+      "2xl": "1736px",
       // => @media (min-width: 1536px) { ... }
     },
     container: {
@@ -29,32 +29,37 @@ module.exports = {
       center: true,
 
       // or have default horizontal padding
-      padding: '10px',
+      padding: "20px",
 
       // default breakpoints but with 40px removed
       screens: {
-        sm: '600px',
-        md: '728px',
-        lg: '984px',
-        xl: '1240px',
-        '2xl': '1296px',
-      }
+        // sm: "600px",
+        // md: "728px",
+        // lg: "984px",
+        xl: "1440px",
+        "2xl": "1696px",
+      },
     },
     extend: {
       backgroundImage: {
-        'bees': "url('../public/img/bees.png')",
+        bees: "url('../public/img/bees.png')",
         "cloud-img": "url('../public/img/bg-section.png')",
         "cloud-item-img": "url('../public/img/bg-item.png')",
-        "dots": "url('../public/img/dots.png')",
-        "banner1": "url('../public/img/banner2.jpg')",
-        "banner2": "url('../public/img/banner1.jpg')",
-        "banner3": "url('../public/img/banner3.jpg')",
+        dots: "url('../public/img/dots.png')",
+        banner1: "url('../public/img/banner2.jpg')",
+        banner2: "url('../public/img/banner1.jpg')",
+        banner3: "url('../public/img/banner3.jpg')",
+        banner4: "url('../public/img/banner4.jpg')",
+        mb_bg: "url('../public/img/mb_bg.svg')",
+        arrow: "url('../public/img/arrow.svg')",
       },
 
       dropShadow: {
-        'text-banner': 'rgba(0, 0, 0, 0.298039) 0px 5px 0px',
-        'text-none': 'unset'
-
+        "text-banner": "rgba(0, 0, 0, 0.298039) 0px 5px 0px",
+        "text-none": "unset",
+      },
+      fontSize: {
+        "text_h1":"40px"
       },
       colors: {
         border: "hsl(var(--border))",
@@ -81,11 +86,13 @@ module.exports = {
         },
         text_h5: {
           DEFAULT: "#9F9E9E",
-        }
-
+        },
+        text_banner: {
+          DEFAULT: "#F6EF76",
+        },
       },
       width: {
-        "height-banner": '200px'
+        "height-banner": "200px",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -93,10 +100,9 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "bees": {
-          '100%': { 'background-position': '-120px' }
+        bees: {
+          "100%": { "background-position": "-120px" },
         },
-
 
         "accordion-down": {
           from: { height: "0" },
@@ -114,6 +120,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"),
-  ],
-}
+  plugins: [require("tailwindcss-animate")],
+};
