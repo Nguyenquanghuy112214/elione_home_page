@@ -25,6 +25,7 @@ function RegisterPage() {
   const form = useForm<z.infer<typeof RegisterSchema>>({
     resolver: zodResolver(RegisterSchema),
   });
+  
   const { isSubmitting, isValid } = form.formState;
 
   const onSubmit = async (values: z.infer<typeof RegisterSchema>) => {

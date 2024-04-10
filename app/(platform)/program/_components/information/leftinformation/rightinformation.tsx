@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import Image from "next/image";
 import { icons } from "@/public/img";
@@ -20,7 +21,7 @@ function RightInformation() {
           <div className=" sm:text-[15px] md:text-[18px] text-[#e64765] uppercase text-center">
             Kế họach hành động
           </div>
-          <div className=" text-[#b1a0a7] text-[14px] leading-[18px]">
+          <div className=" text-[#b1a0a7] sm:text-[14px] md:text-[17px] leading-[18px]">
             <p className=" sm:hidden md:block">
               Cha mẹ học sinh đăng kí theo nhu cầu (tuần, tháng)
             </p>

@@ -17,6 +17,7 @@ export const {
   signIn,
   signOut,
 } = NextAuth({
+  secret: "641ff8a036c9f44bfaa1ac309cb3deeb",
   pages: {
     signIn: "/auth/login",
     error: "/auth/error",

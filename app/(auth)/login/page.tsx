@@ -20,6 +20,9 @@ import {
 import toast from "react-hot-toast";
 import { LoginSchema } from "@/schemas";
 import { login } from "@/actions/login";
+import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
+import { signIn } from "next-auth/react";
+// import { signIn } from "@/auth";
 
 function LoginPage() {
   const router = useRouter();
@@ -28,15 +31,24 @@ function LoginPage() {
   });
   const { isSubmitting, isValid } = form.formState;
   const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
-    console.log("values", values);
+    // console.log("values", values);
 
     try {
-      const res = await login(values);
-      if (!!res?.error) {
-        toast.error("Tên đăng nhập hoặc mật khẩu chưa chính xác");
-      } else {
-        toast.success("Đăng nhập thành công");
-      }
+      console.log("try");
+      signIn("credentials", {
+        email: values.email,
+        password: values.password,
+        callbackUrl: DEFAULT_LOGIN_REDIRECT,
+      });
+
+      console.log("res");
+
+      // const res = await login(values);
+      // if (!!res?.error) {
+      //   toast.error("Tên đăng nhập hoặc mật khẩu chưa chính xác");
+      // } else {
+      //   toast.success("Đăng nhập thành công");
+      // }
 
       // router.push("/");
       router.refresh();

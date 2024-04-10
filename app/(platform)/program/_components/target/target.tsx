@@ -43,7 +43,7 @@ function Target() {
           {/* <div className=" relative md:block sm:hidden"> */}
           <div className=" w-full relative">
             <ArrowSVG />
-            <div className=" text-[#7d838f] text-sm absolute top-[50%] sm:left-[105px] md:left-[140px] translate-y-[-50%] sm:w-[250px] md:w-[350px]">
+            <div className=" text-[#7d838f] sm:text-sm md:text-base absolute top-[50%] sm:left-[105px] md:left-[140px] translate-y-[-50%] sm:w-[250px] md:w-[350px]">
               Tạo nên những đứa trẻ hạnh phúc, yêu thích việc học, sẵn sàng với
               các hoạt động học tập, chuẩn bị vững vàng tâm lý.
               <div className=" text-2xl font-medium border-arrow text-white absolute top-[50%] translate-y-[-50%] left-[-70px] md:w-[50px] md:h-[50px] sm:w-[44px] sm:h-[44px] rounded-full  flex items-center justify-center p-3 shadow-arrow">
@@ -58,7 +58,7 @@ function Target() {
           {data?.map((item, i) => (
             <div className=" w-full relative" key={i}>
               <ArrowSVG />
-              <div className=" text-[#7d838f] text-sm absolute top-[50%] sm:left-[105px] md:left-[140px] translate-y-[-50%] sm:w-[250px] md:w-[350px]">
+              <div className=" text-[#7d838f] sm:text-sm md:text-base absolute top-[50%] sm:left-[105px] md:left-[140px] translate-y-[-50%] sm:w-[250px] md:w-[350px]">
                 Tạo nên những đứa trẻ hạnh phúc, yêu thích việc học, sẵn sàng
                 với các hoạt động học tập, chuẩn bị vững vàng tâm lý.
                 <div className=" text-2xl font-medium border-arrow text-white absolute top-[50%] translate-y-[-50%] left-[-70px] md:w-[50px] md:h-[50px] sm:w-[44px] sm:h-[44px] rounded-full  flex items-center justify-center p-3 shadow-arrow">
