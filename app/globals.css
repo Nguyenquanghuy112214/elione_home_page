@@ -179,15 +179,15 @@
 /* navbar */
 
 .nav {
-  position: static;
+  position: sticky;
   background: white;
-  top: auto;
-  transition: all 3s linear;
+  top: 48.8px;
+  transition: all 0.02s linear;
 }
 
 .nav.sticky {
-  position: fixed;
-  top: 0;
+  position: sticky;
+  top: 120px;
   left: 0;
   width: 100%;
   display: flex;
@@ -195,6 +195,8 @@
   align-items: center;
   z-index: 10;
 }
+
+
 
 .gradient_banner {
   background: radial-gradient(
@@ -547,4 +549,31 @@ body:hover::-webkit-scrollbar-thumb {
 
 .ql-blank {
   min-height: 100px !important;
+}
+
+/* menumb */
+.nav__toggler div {
+  width: 30px;
+  height: 3px;
+  margin: 0.4rem;
+  margin: 5px 0;
+  border-radius: 40px;
+  background: white;
+  transition: all 0.2s ease-in;
+}
+
+.nav__toggler {
+  cursor: pointer;
+}
+
+.line1.active {
+  transform: rotate(-45deg) translate(-6.2px, 5px);
+}
+
+.line2.active {
+  opacity: 0;
+}
+
+.line3.active {
+  transform: rotate(45deg) translate(-6.2px, -5px);
 }

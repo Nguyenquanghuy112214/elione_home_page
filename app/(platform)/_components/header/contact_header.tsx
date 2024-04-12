@@ -33,7 +33,7 @@ function ContactHeader({dataContact}:{dataContact:Contact[]}) {
           <div className=" relative group">
             <Search className=" text-secondary" />
             <div className=" absolute bottom-[-50%] w-10 right-0 h-10 "></div>
-            <div className=" absolute top-[160%] right-0 invisible min-w-[200px] group-hover:top-[140%] group-hover:opacity-100 group-hover:visible transition-all ">
+            <div className=" absolute z-50 top-[160%] right-0 invisible min-w-[200px] group-hover:top-[140%] group-hover:opacity-100 group-hover:visible transition-all ">
               <div className=" flex items-center justify-between border-[2px] border-solid px-4 py-1  bg-white">
                 <Input  className=" border-none text-black" placeholder="search..."/>
                 <Search className=" text-secondary cursor-pointer" />

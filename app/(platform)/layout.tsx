@@ -6,6 +6,7 @@ import Footer from "./_components/footer/footer";
 import { getExpert } from "@/data/expert";
 import { getCourse } from "@/data/course";
 import { getSocialNetwork } from "@/data/socialnetwork";
+import ContactHeader from "./_components/header/contact_header";
 
 async function Layout({ children }: { children: React.ReactNode }) {
   const dataContact = (await getContact()) as Contact[];
@@ -15,7 +16,15 @@ async function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div>
-      <Header dataContact={dataContact} />
+      <div className="container grid grid-cols-12 sm:hidden md:grid pt-5">
+        <div className=" col-span-3"></div>
+        <div className=" col-span-9">
+          <ContactHeader dataContact={dataContact} />
+        </div>
+      </div>
+      <div className=" sticky top-0 z-50 bg-white shadow-md">
+        <Header dataContact={dataContact} />
+      </div>
       {children}
       <Footer
         dataContact={dataContact}

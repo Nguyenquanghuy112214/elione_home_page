@@ -109,55 +109,14 @@ import { Contact } from "@prisma/client";
 import { usePathname, useRouter } from "next/navigation";
 import { icons } from "@/public/img";
 import LoadingModal from "../../loading";
+import Link from "next/link";
+import IconMenuMb from "./iconmenumb";
+import { menu } from "@/data/menu";
+import { cn } from "@/lib/utils";
 
-interface MenuItem {
-  title: string;
-  path?: string;
-  children?: MenuItem[];
-}
 function Header({ dataContact }: { dataContact: Contact[] }) {
   const router = useRouter();
-  const menu: MenuItem[] = [
-    {
-      title: "Giới thiệu",
-      path: "/",
-    },
-    {
-      title: "Chương trình học",
-      path: "/program",
 
-      children: [
-        {
-          title: "Trại Hè Tiếng Anh 2024",
-          path: "/program",
-        },
-      ],
-    },
-    {
-      title: "Tin tức sự kiện",
-      children: [
-        {
-          title: "Tiếng Anh ABC",
-          path: "/news",
-        },
-      ],
-    },
-    {
-      title: "Học online",
-      path: "/online",
-      children: [
-        {
-          title: "Tiếng Anh Ielts",
-        },
-      ],
-    },
-    {
-      title: "Thương hiệu elione",
-    },
-    {
-      title: "Tuyển dụng",
-    },
-  ];
   const pathname = usePathname();
 
   const [loading, setLoading] = useState(true);
@@ -171,15 +130,18 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
       clearTimeout(timer);
     };
   }, [pathname]);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [scroll, setScroll] = useState<boolean>(false);
+  // console.log("scroll",scroll);
 
   useEffect(() => {
     const handleScroll = () => {
       const header = document.querySelector(".nav");
       if (header) {
         if (window.scrollY > 20) {
-          header.classList.add("sticky");
+          setScroll(true);
         } else {
-          header.classList.remove("sticky");
+          setScroll(false);
         }
       }
     };
@@ -190,22 +152,19 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  console.log("hehe", pathname?.startsWith("/program"));
 
   return (
     <div className=" ">
       <LoadingModal loading={loading} />
       <ScrollToTopButton />
-      <div className="container grid grid-cols-12 sm:hidden md:grid pt-5">
-        <div className=" col-span-3"></div>
-        <div className=" col-span-9">
-          <ContactHeader dataContact={dataContact} />
-        </div>
-      </div>
-      <div className=" nav shadow-xl scroll-smooth">
-        <div className="container grid grid-cols-12 pt-[10px] pb-[30px]">
+
+      {/* <div className=" nav shadow-xl scroll-smooth"> */}
+      <div className="nav sticky top-0 z-50">
+        <div className=" container grid grid-cols-12 pt-[10px] pb-[30px] ">
           <div className="  sm:col-span-6 md:col-span-3">
             <Image
-            onClick={() =>router.push('/')}
+              onClick={() => router.push("/")}
               src={icons.logo}
               className=" object-contain sm:w-[120px] md:w-[200px] cursor-pointer"
               height={100}
@@ -218,23 +177,43 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
               {menu.map((item, index) => (
                 <li
                   onClick={() => router.push(item?.path ? item?.path : "")}
-                  className=" group font-semibold uppercase cursor-pointer hover:text-secondary transition-all relative text-sm py-2"
+                  className={cn(
+                    " group font-semibold uppercase cursor-pointer hover:text-secondary transition-all relative text-sm py-2",
+                    `${
+                      (pathname === "/" && item.path === "/") ||
+                      pathname === item.path ||
+                      pathname?.startsWith(`${item.path}/`) ||
+                      pathname?.startsWith(`${item.pathParent}`)
+                        ? "text-secondary"
+                        : ""
+                    }`
+                  )}
                   key={index}
                 >
                   {item?.title}
-                  {item?.children && (
+                  {!!item?.children && (
                     <ul className=" absolute left-0 top-[100%] text-black hover:text-secondary hover:border-secondary invisible opacity-0  group-hover:opacity-100 group-hover:visible transition-all border-l-[2px] border-solid border-black pl-3">
                       {item.children.map((chi, i) => {
-                        console.log("test", chi.path);
-
                         return (
                           <li
-                            onClick={() => {
-                              router.push(chi?.path ? chi.path : "");
+                            key={i}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              if (!!chi.path) {
+                                router.push(chi.path);
+                              }
                             }}
-                            key={index}
+                            className={cn(
+                              `${
+                                (pathname === "/" && chi.path === "/") ||
+                                pathname === chi.path ||
+                                pathname?.startsWith(`${chi.path}/`)
+                                  ? "text-secondary"
+                                  : ""
+                              }`
+                            )}
                           >
-                            {chi.title}
+                            <Link href={"/program"}>{chi.title}</Link>
                           </li>
                         );
                       })}
@@ -245,8 +224,19 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
             </ul>
           </div>
           <div className="sm:col-span-6 md:col-span-9 flex flex-col items-end justify-center lg:hidden sm:flex">
-            <MenuMb />
+            <div className="sm:flex lg:hidden h-full items-center justify-center">
+              <IconMenuMb
+                active={isMenuOpen}
+                setIsMenuOpen={() => setIsMenuOpen(!isMenuOpen)}
+              />
+            </div>
           </div>
+          <MenuMb
+            active={isMenuOpen}
+            handleClick={() => {
+              setIsMenuOpen(false);
+            }}
+          />
         </div>
       </div>
     </div>
