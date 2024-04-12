@@ -17,7 +17,7 @@ function LogoFooter({ dataContact,dataSocialNetwork }: { dataContact: Contact[],
       <div className=" mb-3 ">
         <Image
           src={dataContact[0]?.logo}
-          className=" object-contain sm:w-[120px] md:w-[220px]"
+          className=" object-contain  md:w-[220px]"
           height={100}
           width={200}
           alt="logo"
@@ -26,7 +26,7 @@ function LogoFooter({ dataContact,dataSocialNetwork }: { dataContact: Contact[],
       <div className="  mb-3">
         <Image
           src={dataContact[0]?.sublogo}
-          className=" object-contain sm:w-[120px] md:w-[220px]"
+          className=" object-contain  md:w-[220px]"
           height={200}
           width={200}
           alt="logo"

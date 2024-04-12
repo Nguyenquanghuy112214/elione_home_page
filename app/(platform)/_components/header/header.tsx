@@ -108,7 +108,7 @@ import ScrollToTopButton from "../scrolltotop/scrolltotop";
 import { Contact } from "@prisma/client";
 import { usePathname, useRouter } from "next/navigation";
 import { icons } from "@/public/img";
-import LoadingModal from "../../program/loading";
+import LoadingModal from "../../loading";
 
 interface MenuItem {
   title: string;
@@ -168,12 +168,11 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
       setLoading(false);
     }, 1000);
     return () => {
-      // 👇️ clear timeout when the component unmounts
       clearTimeout(timer);
     };
   }, [pathname]);
+
   useEffect(() => {
-    // Xử lý cuộn trang
     const handleScroll = () => {
       const header = document.querySelector(".nav");
       if (header) {
@@ -187,7 +186,6 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup khi component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -195,7 +193,7 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
 
   return (
     <div className=" ">
-      {/* <LoadingModal loading={loading} /> */}
+      <LoadingModal loading={loading} />
       <ScrollToTopButton />
       <div className="container grid grid-cols-12 sm:hidden md:grid pt-5">
         <div className=" col-span-3"></div>
@@ -207,8 +205,9 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
         <div className="container grid grid-cols-12 pt-[10px] pb-[30px]">
           <div className="  sm:col-span-6 md:col-span-3">
             <Image
+            onClick={() =>router.push('/')}
               src={icons.logo}
-              className=" object-contain sm:w-[120px] md:w-[200px]"
+              className=" object-contain sm:w-[120px] md:w-[200px] cursor-pointer"
               height={100}
               width={200}
               alt="logo"

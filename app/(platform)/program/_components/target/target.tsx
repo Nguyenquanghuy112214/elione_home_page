@@ -14,27 +14,16 @@ function TargetCl({
   dataThumb: TargetThumbnail[];
   data: Target[];
 }) {
-  const [isMobile, setIsmobile] = useState<boolean>(false);
-  console.log("isMobile", isMobile);
-
-  const handleResize = () => {
-    if (window.innerWidth < 1025) {
-      setIsmobile(true);
-    } else {
-      setIsmobile(false);
-    }
-  };
-
-  // create an event listener
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-  });
   if (!dataThumb || !data) {
     return null;
   }
   return (
     <div className=" container sm:my-3 md:py-10">
-      <div className=" flex sm:gap-x-2 md:gap-x-10 items-center">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        className=" flex sm:gap-x-2 md:gap-x-10 items-center"
+      >
         <MdOutlineArrowRight className=" text-[#27dae7] text-[50px]" />
         <div className="">
           <div className=" text-center sm:text-[22px] md:text-text_h1 uppercase text-[#9f9f9f]">
@@ -45,9 +34,13 @@ function TargetCl({
           </h2>
         </div>
       </div>
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 md:px-8">
+      <div
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        className="grid sm:grid-cols-1 md:grid-cols-2 md:px-8"
+      >
         <div className=" flex flex-col items-start justify-end">
-          <div className=" sm:w-[100%] md:w-[130%]  relative z-[2]">
+          <div className=" sm:w-[100%] md:w-[100%]  relative z-[2]">
             <Image
               src={dataThumb[0]?.img}
               alt="img"

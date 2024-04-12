@@ -3,6 +3,8 @@ import InfomationItem from "./infomationitem";
 import { Information } from "@prisma/client";
 
 function InfomationCl({ data }: { data: Information[] }) {
+  console.log("dsdsd",data);
+  
   return (
     <div className=" container my-14">
       <div

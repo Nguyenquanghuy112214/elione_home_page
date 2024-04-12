@@ -52,10 +52,10 @@ const routes = [
     label: "Target",
     href: "/dashboard/target",
   },
-  {
-    label: "InformationProgram",
-    href: "/dashboard/informationprogram",
-  },
+  // {
+  //   label: "InformationProgram",
+  //   href: "/dashboard/informationprogram",
+  // },
   {
     label: "Time",
     href: "/dashboard/time",

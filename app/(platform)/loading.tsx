@@ -10,7 +10,7 @@ function LoadingModal({ loading }: { loading: boolean }) {
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className=" fixed top-0 left-0 right-0 bottom-0 bg-slate-950 z-[1000] flex items-center justify-center"
+          className=" fixed top-0 left-0 right-0 bottom-0 bg-secondary z-[1000] flex items-center justify-center"
         >
           <HashLoader size={80} color="white" />
         </motion.div>

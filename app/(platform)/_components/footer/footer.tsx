@@ -20,7 +20,7 @@ function Footer({
   dataSocialNetwork:SocialNetwork[]
 }) {
   return (
-    <div className=" ">
+    <div className="">
       <Separator className=" w-full h-2 bg-secondary"></Separator>
       <Separator className=" w-full h-1 bg-primary"></Separator>
       <div

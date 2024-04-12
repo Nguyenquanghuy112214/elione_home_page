@@ -13,10 +13,14 @@ function ScheduleCl({
   dataThumb: ScheduleThumbnail[];
   data: Schedule[];
 }) {
-  if(!dataThumb || !data) return null;
+  if (!dataThumb || !data) return null;
   return (
     <div className=" container sm:my-3 md:py-10">
-      <div className=" flex sm:gap-x-2 md:gap-x-10 items-center">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        className=" flex sm:gap-x-2 md:gap-x-10 items-center"
+      >
         <MdOutlineArrowRight className=" text-[#27dae7] text-[50px]" />
         <div className="">
           <div className=" text-center sm:text-[22px] md:text-text_h1 uppercase text-[#9f9f9f]">
@@ -24,7 +28,11 @@ function ScheduleCl({
           </div>
         </div>
       </div>
-      <div className=" sm:mt-4 md:mt-6">
+      <div
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        className=" sm:mt-4 md:mt-6"
+      >
         <Image
           src={dataThumb[0]?.img}
           alt="img"
@@ -33,8 +41,8 @@ function ScheduleCl({
           className=" w-full h-auto"
         />
       </div>
-      <div className=" mt-6">
-        <Description data={data}/>
+      <div data-aos="zoom-in" data-aos-duration="1000" className=" mt-6">
+        <Description data={data} />
       </div>
     </div>
   );

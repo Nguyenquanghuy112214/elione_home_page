@@ -10,6 +10,7 @@ import {
   Information,
   InformationProgram,
   InformationThumbnail,
+  Partner,
   Receive,
   Schedule,
   ScheduleThumbnail,
@@ -34,22 +35,26 @@ import { getTarget, getTargetThumb } from "@/data/target";
 import TargetCl from "./_components/target/target";
 import { getTime } from "@/data/time";
 import { getStep } from "@/data/step";
+import PartnerCl from "../_components/partner/partner";
+import { getPartner } from "@/data/partner";
 
 async function Page() {
   const dataEvaluate = (await getEvaluate()) as Evaluate[];
-  const dataInformation = (await getInformationProgram()) as Information[];
+  const dataInformation = (await getInformation()) as Information[];
   const dataWhyChoose = (await getWhyChooseProgram()) as WhyChooseProgram[];
   const dataStudent = (await getReceive()) as Receive[];
-  const dataInformationSub =
-    (await getInformationProgram()) as InformationProgram[];
-  const dataInformationThumb =
-    (await getInformationThumb()) as InformationThumbnail[];
   const dataShedule = (await getSchedule()) as Schedule[];
   const dataSheduleThumb = (await getScheduleThumb()) as ScheduleThumbnail[];
   const dataTarget = (await getTarget()) as Target[];
   const dataTargetThumb = (await getTargetThumb()) as TargetThumbnail[];
   const dataTime = (await getTime()) as Time[];
   const dataStep = (await getStep()) as Step[];
+  const dataPartner = (await getPartner()) as Partner[];
+
+  // const dataInformationSub =
+  //   (await getInformationProgram()) as InformationProgram[];
+  // const dataInformationThumb =
+  //   (await getInformationThumb()) as InformationThumbnail[];
 
   return (
     <div>
@@ -57,13 +62,11 @@ async function Page() {
       <WhychooseElione data={dataWhyChoose} />
       <Student data={dataStudent} />
       <TargetCl dataThumb={dataTargetThumb} data={dataTarget} />
-      <InformationSub
-        dataTime={dataTime}
-        data={dataStep}
-      />
-      <ScheduleCl dataThumb={dataSheduleThumb} data={dataShedule}/>
+      <InformationSub dataTime={dataTime} data={dataStep} />
+      <ScheduleCl dataThumb={dataSheduleThumb} data={dataShedule} />
       <EvaluateCl data={dataEvaluate} />
       <InfomationCl data={dataInformation} />
+      {/* <PartnerCl data={dataPartner} /> */}
     </div>
   );
 }
