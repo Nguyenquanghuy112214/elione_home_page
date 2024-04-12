@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/form";
 import { RegisterSchema } from "@/schemas";
 import { register } from "@/actions/register";
+import { icons } from "@/public/img";
 
 function RegisterPage() {
   const router = useRouter();
@@ -49,7 +50,7 @@ function RegisterPage() {
           <Image
             width={180}
             height={180}
-            src={"https://elione.bkt.net.vn/Content/images/logo-wide.png"}
+            src={icons.logo}
             alt="avt"
           />
         </div>

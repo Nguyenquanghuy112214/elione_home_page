@@ -1,7 +1,8 @@
+import { cn } from "@/lib/utils";
+import { Receive } from "@prisma/client";
 import React from "react";
 
-function Student() {
-  const data = [1, 2, 3, 4, 5, 6];
+function Student({ data }: { data: Receive[] }) {
   return (
     <div className="bg-gradient-to-br from-[#f8f8f8] from-25% to-[#bcbebd] relative z-0 mt-[198px]">
       <div className=" pt-10 pb-20 container">
@@ -20,8 +21,8 @@ function Student() {
         </div>
         <div className=" grid sm:grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-20  mt-10">
           {data?.map((item, i) => (
-            <article className="curved" key={i}>
-              <h2 className=" uppercase">Bổ trợ kiến thức nền tảng</h2>
+            <article className={cn("curved",`curved-${i}`)} key={i}>
+              <h2 className=" uppercase">{item?.title}</h2>
             </article>
           ))}
         </div>

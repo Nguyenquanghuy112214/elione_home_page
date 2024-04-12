@@ -4,8 +4,16 @@ import Image from "next/image";
 import React from "react";
 import { MdOutlineArrowRight } from "react-icons/md";
 import Description from "./description";
+import { Schedule, ScheduleThumbnail } from "@prisma/client";
 
-function Schedule() {
+function ScheduleCl({
+  dataThumb,
+  data,
+}: {
+  dataThumb: ScheduleThumbnail[];
+  data: Schedule[];
+}) {
+  if(!dataThumb || !data) return null;
   return (
     <div className=" container sm:my-3 md:py-10">
       <div className=" flex sm:gap-x-2 md:gap-x-10 items-center">
@@ -17,13 +25,19 @@ function Schedule() {
         </div>
       </div>
       <div className=" sm:mt-4 md:mt-6">
-        <Image src={icons.schedulesvg} alt="img" width={1000} height={1000} className=" w-full h-auto"/>
+        <Image
+          src={dataThumb[0]?.img}
+          alt="img"
+          width={1000}
+          height={1000}
+          className=" w-full h-auto"
+        />
       </div>
       <div className=" mt-6">
-        <Description/>
+        <Description data={data}/>
       </div>
     </div>
   );
 }
 
-export default Schedule;
+export default ScheduleCl;

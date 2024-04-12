@@ -13,7 +13,7 @@ function FooterItem2({dataExpert}:{dataExpert:Expert[]}) {
         {dataExpert?.map((item, index) => (
             <div key={index} className=" flex items-center justify-start ">
                 <ChevronRight size={20} className=" text-secondary" strokeWidth={2.25} absoluteStrokeWidth />
-                <span className=" uppercase font-medium text-[15px]">{item?.title}</span>
+                <span className=" uppercase font-medium text-[15px] flex-1">{item?.title}</span>
             </div>
         ))}
       </div>

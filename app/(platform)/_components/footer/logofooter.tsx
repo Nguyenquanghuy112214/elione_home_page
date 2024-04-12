@@ -1,13 +1,15 @@
 "use client";
 
 import { icons } from "@/public/img";
-import { Contact } from "@prisma/client";
+import { Contact, SocialNetwork } from "@prisma/client";
 import { Facebook, Instagram, LocateOffIcon, Twitter } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-
-function LogoFooter({dataContact}:{dataContact:Contact[]}) {
-  if (!dataContact) {
+import { SiZalo } from "react-icons/si";
+import { FaTiktok, FaYoutube } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+function LogoFooter({ dataContact,dataSocialNetwork }: { dataContact: Contact[],dataSocialNetwork:SocialNetwork[] }) {
+  if (!dataContact || !dataSocialNetwork) {
     return null;
   }
   return (
@@ -30,28 +32,23 @@ function LogoFooter({dataContact}:{dataContact:Contact[]}) {
           alt="logo"
         />
       </div>
-      {/* <div className=" flex items-center justify-start gap-x-3">
-        <div className=" p-1 rounded-full border-[3px] border-solid border-secondary ">
+      <div className=" flex items-center justify-start gap-x-3">
+        <a target="_blank" href={dataSocialNetwork[0]?.facebook} className=" p-1 rounded-full border-[3px] border-solid border-secondary ">
           <Facebook size={20} absoluteStrokeWidth className=" text-secondary" />
-        </div>
-        <div className=" p-1 rounded-full border-[3px] border-solid border-secondary ">
-          <Twitter size={20} absoluteStrokeWidth className=" text-secondary" />
-        </div>
-        <div className=" p-1 rounded-full border-[3px] border-solid border-secondary ">
-          <Instagram
-            size={20}
-            absoluteStrokeWidth
-            className=" text-secondary"
-          />
-        </div>
-        <div className=" p-1 rounded-full border-[3px] border-solid border-secondary ">
-          <LocateOffIcon
-            size={20}
-            absoluteStrokeWidth
-            className=" text-secondary"
-          />
-        </div>
-      </div> */}
+        </a>
+        <a target="_blank" href={dataSocialNetwork[0]?.zalo} className=" p-1 rounded-full border-[3px] border-solid border-secondary ">
+          <SiZalo size={20} className=" text-secondary" />
+        </a>
+        <a target="_blank" href={dataSocialNetwork[0]?.youtube} className=" p-1 rounded-full border-[3px] border-solid border-secondary ">
+          <FaYoutube size={20} className=" text-secondary" />
+        </a>
+        <a target="_blank" href={dataSocialNetwork[0]?.tiktok} className=" p-1 rounded-full border-[3px] border-solid border-secondary ">
+          <FaTiktok size={20} className=" text-secondary" />
+        </a>
+        <a target="_blank" href={dataSocialNetwork[0]?.location} className=" p-1 rounded-full border-[3px] border-solid border-secondary ">
+          <FaLocationDot size={20} className=" text-secondary" />
+        </a>
+      </div>
     </div>
   );
 }

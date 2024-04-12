@@ -2,39 +2,9 @@
 import { icons } from "@/public/img";
 import React from "react";
 import WhychooseElioneItem from "./whychoose-elione-item";
+import { WhyChooseProgram } from "@prisma/client";
 
-function WhychooseElione() {
-  const data = [
-    {
-      img: icons.mot,
-      category: "Đội ngũ",
-      title: "Chuyên gia",
-      subtitle: " 100% Giáo Viên Giỏi",
-      imgfooter: icons.robot,
-      description:
-        "ELIONE hội tụ đội ngũ 100% giáo viên nước ngoài ( Anh,Úc, Canada) có chứng chỉ TKT, TEFL, CELTA, DELTA, TESOL và TESL",
-    },
-    {
-      img: icons.hai,
-      category: "Đội ngũ",
-      title: "Chuyên gia",
-      subtitle: " 100% Giáo Viên Giỏi",
-      imgfooter: icons.robot,
-
-      description:
-        "ELIONE hội tụ đội ngũ 100% giáo viên nước ngoài ( Anh,Úc, Canada) có chứng chỉ TKT, TEFL, CELTA, DELTA, TESOL và TESL",
-    },
-    {
-      img: icons.ba,
-      category: "Đội ngũ",
-      title: "Chuyên gia",
-      subtitle: " 100% Giáo Viên Giỏi",
-      imgfooter: icons.robot,
-
-      description:
-        "ELIONE hội tụ đội ngũ 100% giáo viên nước ngoài ( Anh,Úc, Canada) có chứng chỉ TKT, TEFL, CELTA, DELTA, TESOL và TESL",
-    },
-  ];
+function WhychooseElione({data}:{data:WhyChooseProgram[]}) {
   return (
     <div className=" bg-gradient-to-br from-[#f8f8f8] from-25% to-[#bcbebd] relative z-0">
       <div className=" py-10">

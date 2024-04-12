@@ -12,7 +12,25 @@ export type ModalType =
   | "deletePartner"
   | "createExpert"
   | "editExpert"
-  | "deleteExpert";
+  | "deleteExpert"
+  | "createTargetThumb"
+  | "editTargetThumb"
+  | "deleteTargetThumb"
+  | "createTarget"
+  | "editTarget"
+  | "deleteTarget"
+  | "createInformationThumb"
+  | "editInformationThumb"
+  | "deleteInformationThumb"
+  | "createInformationProgram"
+  | "editInformationProgram"
+  | "deleteInformationProgram"
+  | "createScheduleThumb"
+  | "editScheduleThumb"
+  | "deleteScheduleThumb"
+  | "createSchedule"
+  | "editSchedule"
+  | "deleteSchedule";
 
 export type DataModal = {
   id: string;

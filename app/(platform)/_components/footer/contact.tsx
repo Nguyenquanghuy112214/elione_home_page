@@ -19,21 +19,19 @@ function ContactCl({ dataContact }: { dataContact: Contact[] }) {
             strokeWidth={2.25}
             absoluteStrokeWidth
           />
-          <span className=" uppercase font-medium text-[15px]">
+          <span className=" uppercase font-medium text-[15px] flex-1">
             {dataContact[0]?.namecompany}
           </span>
         </div>
         <div className=" flex items-center justify-start gap-x-2 ">
-          <MapPin
+        <MapPin
             size={20}
             className=" text-secondary"
             strokeWidth={2.25}
             absoluteStrokeWidth
           />
-          <span className=" text-[12px]">
-            {/* No7D-LK19, khu dịch vụ Van Phúc, Phường Vạn Phúc,
-            <br />
-             Quận Hà Đông, Thành phố Hà Nội, Việt Nam */}
+          <span className=" text-[12px] flex-1">
+           
             {dataContact[0]?.addresscompany}
           </span>
         </div>
@@ -49,7 +47,7 @@ function ContactCl({ dataContact }: { dataContact: Contact[] }) {
             strokeWidth={2.25}
             absoluteStrokeWidth
           />
-          <span className=" uppercase font-medium text-[15px]">
+          <span className=" uppercase font-medium text-[15px] flex-1">
             {dataContact[0]?.namecenter}
           </span>
         </div>
@@ -60,7 +58,7 @@ function ContactCl({ dataContact }: { dataContact: Contact[] }) {
             strokeWidth={2.25}
             absoluteStrokeWidth
           />
-          <span className=" text-[12px]">
+          <span className=" text-[12px] flex-1">
             {/* Số 29/282 Kim Giang, Đại Kim, Hoàng Mai, Hà Nội
             <br />
             HOTLINE: 0889 515 888 */}

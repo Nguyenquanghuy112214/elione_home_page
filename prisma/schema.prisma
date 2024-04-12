@@ -102,3 +102,88 @@ model Contact {
   phone          String
   createdAt      DateTime @default(now())
 }
+
+model WhyChooseProgram {
+  id          String   @id @default(uuid())
+  img         String
+  subimg      String
+  title1      String
+  title2      String
+  title3      String
+  description String
+  createdAt   DateTime @default(now())
+}
+
+model Receive {
+  id        String   @id @default(uuid())
+  title     String
+  createdAt DateTime @default(now())
+}
+
+model TargetThumbnail {
+  id        String   @id @default(uuid())
+  title     String
+  img       String
+  createdAt DateTime @default(now())
+}
+
+model Target {
+  id        String   @id @default(uuid())
+  title     String
+  createdAt DateTime @default(now())
+}
+
+model InformationThumbnail {
+  id        String   @id @default(uuid())
+  title     String
+  img       String
+  createdAt DateTime @default(now())
+}
+
+model InformationProgram {
+  id        String   @id @default(uuid())
+  img       String
+  title     String
+  createdAt DateTime @default(now())
+}
+
+model Step {
+  id          String   @id @default(uuid())
+  img         String
+  title       String
+  subtitle    String
+  description String
+  createdAt   DateTime @default(now())
+}
+
+model Time {
+  id        String   @id @default(uuid())
+  timestart DateTime
+  timeend   DateTime
+  location  String
+  img       String
+  createdAt DateTime @default(now())
+}
+
+model ScheduleThumbnail {
+  id        String   @id @default(uuid())
+  title     String
+  img       String
+  createdAt DateTime @default(now())
+}
+
+model Schedule {
+  id        String   @id @default(uuid())
+  title     String
+  createdAt DateTime @default(now())
+}
+
+model SocialNetwork {
+  id        String   @id @default(uuid())
+  zalo      String
+  youtube   String
+  tiktok    String
+  facebook  String
+  location  String
+  createdAt DateTime @default(now())
+}

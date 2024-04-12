@@ -21,13 +21,13 @@ function WhyChooseItem({
           alt="banner1"
           width={200}
           height={200}
-          className=" w-[150px] h-[150px] rounded-md"
+          className=" w-[150px] h-[150px] rounded-md object-contain"
         ></Image>
       </div>
-      <div className=" bg-secondary skew-x-12 text-black uppercase mb-3 relative italic px-2 py-1 text-center font-semibold">
+      <div className="  bg-secondary skew-x-12 text-black uppercase mb-3 relative italic px-2 py-3 text-center font-semibold">
         {title}
       </div>
-      <div className=" text-justify tracking-tighter ">
+      <div className=" text-justify tracking-tighter">
         <PreviewReactQuill value={description}/></div>
     </div>
   );

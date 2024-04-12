@@ -5,8 +5,15 @@ import React, { useEffect, useState } from "react";
 import { MdOutlineArrowRight } from "react-icons/md";
 import ArrowSVG from "./arrowsvg";
 import Targetsvg from "./targetsvg";
-function Target() {
-  const data = [1, 2, 3, 4, 5];
+import { Target, TargetThumbnail } from "@prisma/client";
+import { cn } from "@/lib/utils";
+function TargetCl({
+  dataThumb,
+  data,
+}: {
+  dataThumb: TargetThumbnail[];
+  data: Target[];
+}) {
   const [isMobile, setIsmobile] = useState<boolean>(false);
   console.log("isMobile", isMobile);
 
@@ -22,6 +29,9 @@ function Target() {
   useEffect(() => {
     window.addEventListener("resize", handleResize);
   });
+  if (!dataThumb || !data) {
+    return null;
+  }
   return (
     <div className=" container sm:my-3 md:py-10">
       <div className=" flex sm:gap-x-2 md:gap-x-10 items-center">
@@ -38,14 +48,20 @@ function Target() {
       <div className="grid sm:grid-cols-1 md:grid-cols-2 md:px-8">
         <div className=" flex flex-col items-start justify-end">
           <div className=" sm:w-[100%] md:w-[130%]  relative z-[2]">
-            <Targetsvg />
+            <Image
+              src={dataThumb[0]?.img}
+              alt="img"
+              width={600}
+              height={700}
+              className=" w-full h-auto object-cover"
+            />
+            {/* <Targetsvg /> */}
           </div>
           {/* <div className=" relative md:block sm:hidden"> */}
           <div className=" w-full relative">
             <ArrowSVG />
             <div className=" text-[#7d838f] sm:text-sm md:text-base absolute top-[50%] sm:left-[105px] md:left-[140px] translate-y-[-50%] sm:w-[250px] md:w-[350px]">
-              Tạo nên những đứa trẻ hạnh phúc, yêu thích việc học, sẵn sàng với
-              các hoạt động học tập, chuẩn bị vững vàng tâm lý.
+              {data[0]?.title}
               <div className=" text-2xl font-medium border-arrow text-white absolute top-[50%] translate-y-[-50%] left-[-70px] md:w-[50px] md:h-[50px] sm:w-[44px] sm:h-[44px] rounded-full  flex items-center justify-center p-3 shadow-arrow">
                 1
               </div>
@@ -55,22 +71,30 @@ function Target() {
         </div>
 
         <div className=" col-span-1">
-          {data?.map((item, i) => (
-            <div className=" w-full relative" key={i}>
-              <ArrowSVG />
-              <div className=" text-[#7d838f] sm:text-sm md:text-base absolute top-[50%] sm:left-[105px] md:left-[140px] translate-y-[-50%] sm:w-[250px] md:w-[350px]">
-                Tạo nên những đứa trẻ hạnh phúc, yêu thích việc học, sẵn sàng
-                với các hoạt động học tập, chuẩn bị vững vàng tâm lý.
-                <div className=" text-2xl font-medium border-arrow text-white absolute top-[50%] translate-y-[-50%] left-[-70px] md:w-[50px] md:h-[50px] sm:w-[44px] sm:h-[44px] rounded-full  flex items-center justify-center p-3 shadow-arrow">
-                  {i+2}
+          {data?.map((item, i) => {
+            if (i > 0) {
+              return (
+                <div className=" w-full relative" key={i}>
+                  <ArrowSVG />
+                  <div className=" text-[#7d838f] sm:text-sm md:text-base absolute top-[50%] sm:left-[105px] md:left-[140px] translate-y-[-50%] sm:w-[250px] md:w-[350px]">
+                    {item?.title}
+                    <div
+                      className={cn(
+                        " text-2xl font-medium border-arrow text-white absolute top-[50%] translate-y-[-50%] left-[-70px] md:w-[50px] md:h-[50px] sm:w-[44px] sm:h-[44px] rounded-full  flex items-center justify-center p-3 shadow-arrow",
+                        `border-arrow-${i}`
+                      )}
+                    >
+                      {i + 1}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              );
+            }
+          })}
         </div>
       </div>
     </div>
   );
 }
 
-export default Target;
+export default TargetCl;

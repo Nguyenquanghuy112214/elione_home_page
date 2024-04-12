@@ -22,6 +22,7 @@ import { LoginSchema } from "@/schemas";
 import { login } from "@/actions/login";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { signIn } from "next-auth/react";
+import { icons } from "@/public/img";
 // import { signIn } from "@/auth";
 
 function LoginPage() {
@@ -34,23 +35,22 @@ function LoginPage() {
     // console.log("values", values);
 
     try {
-      console.log("try");
-      signIn("credentials", {
-        email: values.email,
-        password: values.password,
-        callbackUrl: DEFAULT_LOGIN_REDIRECT,
-      });
+      // console.log("try");
+      // signIn("credentials", {
+      //   email: values.email,
+      //   password: values.password,
+      //   callbackUrl: DEFAULT_LOGIN_REDIRECT,
+      // });
 
-      console.log("res");
+      // console.log("res");
 
-      // const res = await login(values);
-      // if (!!res?.error) {
-      //   toast.error("Tên đăng nhập hoặc mật khẩu chưa chính xác");
-      // } else {
-      //   toast.success("Đăng nhập thành công");
-      // }
+      const res = await login(values);
+      if (!!res?.error) {
+        toast.error("Tên đăng nhập hoặc mật khẩu chưa chính xác");
+      } else {
+        toast.success("Đăng nhập thành công");
+      }
 
-      // router.push("/");
       router.refresh();
     } catch (error: any) {
       toast.error("Đăng nhập thất bại");
@@ -63,7 +63,7 @@ function LoginPage() {
           <Image
             width={180}
             height={180}
-            src={"https://elione.bkt.net.vn/Content/images/logo-wide.png"}
+            src={icons.logo}
             alt="avt"
           />
         </div>

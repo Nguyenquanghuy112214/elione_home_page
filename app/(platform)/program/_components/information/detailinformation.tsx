@@ -4,19 +4,10 @@ import { FaStar } from "react-icons/fa";
 import { Chart } from "react-google-charts";
 import Image from "next/image";
 import { icons } from "@/public/img";
-function DetailInformation() {
-  const data = [
-    ["Task", "Hours per Day"],
-    ["Work", 11],
-    ["Eat", 2],
-    ["Commute", 2],
-    ["Watch TV", 2],
-    ["Sleep", 7],
-  ];
-  const options = {
-    // title: "My Daily Activities",
-    is3D: true,
-  };
+import { Time } from "@prisma/client";
+import { formatDay } from "@/contants/formatDay";
+function DetailInformation({ dataTime }: { dataTime: Time[] }) {
+  if (!dataTime) return null;
   return (
     <div className=" flex flex-col sm:gap-y-2 md:gap-y-3 mt-7">
       <div className=" flex items-center justify-start gap-x-2">
@@ -24,7 +15,8 @@ function DetailInformation() {
           <FaStar className=" text-[#57bfce] sm:text-[15px] md:text-[20px]" />
         </div>
         <div className=" text-[#8c8f9c] sm:text-base md:text-lg">
-          Thời gian đăng kí: 01/04 - 30/05/2024
+          Thời gian đăng kí: {formatDay(dataTime[0]?.timestart)} -{" "}
+          {formatDay(dataTime[0]?.timeend)}
         </div>
       </div>
       <div className=" flex items-center justify-start gap-x-2">
@@ -32,8 +24,7 @@ function DetailInformation() {
           <FaStar className=" text-[#57bfce] sm:text-[15px] md:text-[20px]" />
         </div>
         <div className=" text-[#8c8f9c] sm:text-base md:text-lg">
-          Địa điểm: ELIONE ĐẠI KIM - Số 29/282 Kim Giang, Đại Kim, Hoàng Mai, Hà
-          Nội.
+          Địa điểm: {dataTime[0]?.location}
         </div>
       </div>
       <div className=" flex items-center justify-start gap-x-2">
@@ -45,15 +36,8 @@ function DetailInformation() {
         </div>
       </div>
       <div>
-        {/* <Chart
-          chartType="PieChart"
-          data={data}
-          options={options}
-          width={"100%"}
-          height={"500px"}
-        /> */}
         <Image
-          src={icons.chartsvg}
+          src={dataTime[0]?.img}
           alt="chart"
           width={400}
           height={400}

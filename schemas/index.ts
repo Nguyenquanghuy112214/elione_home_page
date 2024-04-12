@@ -44,6 +44,74 @@ export const editWhyChooseSchema = z.object({
     message: "Vui lòng chọn ảnh",
   }),
 });
+export const createStepSchema = z.object({
+  title: z.string().min(1, {
+    message: "Vui lòng nhập tiêu đề",
+  }),
+  subtitle: z.string().min(1, {
+    message: "Vui lòng nhập tiêu đề",
+  }),
+  description: z.string().min(1, {
+    message: "Vui lòng nhập mô tả",
+  }),
+  img: z.string().min(1, {
+    message: "Vui lòng chọn ảnh",
+  }),
+});
+
+export const editStepSchema = z.object({
+  id: z.string().min(1, {
+    message: "Vui lòng nhập id",
+  }),
+  title: z.string().min(1, {
+    message: "Vui lòng nhập tiêu đề",
+  }),
+  subtitle: z.string().min(1, {
+    message: "Vui lòng nhập tiêu đề",
+  }),
+  description: z.string().min(1, {
+    message: "Vui lòng nhập mô tả",
+  }),
+  img: z.string().min(1, {
+    message: "Vui lòng chọn ảnh",
+  }),
+});
+export const createTimeSchema = z.object({
+  timestart: z.date({
+    required_error: "Vui lòng chọn ngày",
+    invalid_type_error: "Sai định dạng",
+  }),
+  timeend: z.date({
+    required_error: "Vui lòng chọn ngày",
+    invalid_type_error: "Sai định dạng",
+  }),
+  location: z.string().min(1, {
+    message: "Vui lòng nhập địa chỉ",
+  }),
+  img: z.string().min(1, {
+    message: "Vui lòng chọn ảnh",
+  }),
+});
+
+export const editTimeSchema = z.object({
+  id: z.string().min(1, {
+    message: "Vui lòng nhập id",
+  }),
+  timestart: z.date({
+    required_error: "Vui lòng chọn ngày",
+    invalid_type_error: "Sai định dạng",
+  }),
+  timeend: z.date({
+    required_error: "Vui lòng chọn ngày",
+    invalid_type_error: "Sai định dạng",
+  }),
+  location: z.string().min(1, {
+    message: "Vui lòng nhập địa chỉ",
+  }),
+  img: z.string().min(1, {
+    message: "Vui lòng chọn ảnh",
+  }),
+});
 
 export const createProcessSchema = z.object({
   img: z.string().min(1, {
@@ -61,6 +129,56 @@ export const editProcessSchema = z.object({
   img: z.string().min(1, {
     message: "Vui lòng nhập ảnh",
   }),
+  title: z.string().min(1, {
+    message: "Vui lòng nhập tiêu đề",
+  }),
+});
+export const createScheduleSchema = z.object({
+  title: z.string().min(1, {
+    message: "Vui lòng nhập tiêu đề",
+  }),
+});
+
+export const editScheduleSchema = z.object({
+  id: z.string().min(1, {
+    message: "Vui lòng nhập id",
+  }),
+
+  title: z.string().min(1, {
+    message: "Vui lòng nhập tiêu đề",
+  }),
+});
+
+export const createSocialSchema = z.object({
+  zalo: z.string(),
+  youtube: z.string(),
+  tiktok: z.string(),
+  facebook: z.string(),
+  location: z.string(),
+});
+
+export const editSocialSchema = z.object({
+  id: z.string().min(1, {
+    message: "Vui lòng nhập id",
+  }),
+
+  zalo: z.string(),
+  youtube: z.string(),
+  tiktok: z.string(),
+  facebook: z.string(),
+  location: z.string(),
+});
+export const createReceiveSchema = z.object({
+  title: z.string().min(1, {
+    message: "Vui lòng nhập tiêu đề",
+  }),
+});
+
+export const editReceiveSchema = z.object({
+  id: z.string().min(1, {
+    message: "Vui lòng nhập id",
+  }),
+
   title: z.string().min(1, {
     message: "Vui lòng nhập tiêu đề",
   }),
@@ -138,7 +256,7 @@ export const createEvaluateSchema = z.object({
     message: "Vui lòng nhập video",
   }),
   star: z.string().refine((val) => !Number.isNaN(parseInt(val, 10)), {
-    message: "Vui lòng nhập số"
+    message: "Vui lòng nhập số",
   }),
   parentstudent: z.string().min(1, {
     message: "Vui lòng nhập tên học sinh",
@@ -166,7 +284,7 @@ export const editEvaluateSchema = z.object({
     message: "Vui lòng nhập video",
   }),
   star: z.string().refine((val) => !Number.isNaN(parseInt(val, 10)), {
-    message: "Vui lòng nhập số"
+    message: "Vui lòng nhập số",
   }),
   parentstudent: z.string().min(1, {
     message: "Vui lòng nhập tên học sinh",
@@ -244,5 +362,50 @@ export const editContactSchema = z.object({
   }),
   phone: z.string().min(1, {
     message: "Vui lòng nhập số điện thoại",
+  }),
+});
+
+export const createWhyChooseProgramSchema = z.object({
+  title1: z.string().min(1, {
+    message: "Vui lòng nhập tiêu đề",
+  }),
+  title2: z.string().min(1, {
+    message: "Vui lòng nhập tiêu đề",
+  }),
+  title3: z.string().min(1, {
+    message: "Vui lòng nhập tiêu đề",
+  }),
+  description: z.string().min(1, {
+    message: "Vui lòng nhập mô tả",
+  }),
+  img: z.string().min(1, {
+    message: "Vui lòng chọn ảnh",
+  }),
+  subimg: z.string().min(1, {
+    message: "Vui lòng chọn ảnh",
+  }),
+});
+
+export const editWhyChooseProgramSchema = z.object({
+  id: z.string().min(1, {
+    message: "Vui lòng nhập id",
+  }),
+  title1: z.string().min(1, {
+    message: "Vui lòng nhập tiêu đề",
+  }),
+  title2: z.string().min(1, {
+    message: "Vui lòng nhập tiêu đề",
+  }),
+  title3: z.string().min(1, {
+    message: "Vui lòng nhập tiêu đề",
+  }),
+  description: z.string().min(1, {
+    message: "Vui lòng nhập mô tả",
+  }),
+  img: z.string().min(1, {
+    message: "Vui lòng chọn ảnh",
+  }),
+  subimg: z.string().min(1, {
+    message: "Vui lòng chọn ảnh",
   }),
 });

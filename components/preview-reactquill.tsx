@@ -7,19 +7,15 @@ import "react-quill/dist/quill.bubble.css";
 
 interface PreviewProps {
   value: string;
-};
+}
 
-export const PreviewReactQuill = ({
-  value,
-}: PreviewProps) => {
-  const ReactQuill = useMemo(() => dynamic(() => import("react-quill"), { ssr: false }), []);
+export const PreviewReactQuill = ({ value }: PreviewProps) => {
+  const ReactQuill = useMemo(
+    () => dynamic(() => import("react-quill"), { ssr: false }),
+    []
+  );
 
   return (
-    <ReactQuill
-    className=" !text-base"
-      theme="bubble"
-      value={value}
-      readOnly
-    />
+    <ReactQuill className=" !text-base" theme="bubble" value={value} readOnly />
   );
 };

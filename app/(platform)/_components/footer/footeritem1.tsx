@@ -17,7 +17,7 @@ function FooterItem1({ dataCourse }: { dataCourse: Course[] }) {
               strokeWidth={2.25}
               absoluteStrokeWidth
             />
-            <span className=" uppercase font-medium text-[15px]">
+            <span className=" uppercase font-medium text-[15px] flex-1">
               {item?.title}
             </span>
           </div>

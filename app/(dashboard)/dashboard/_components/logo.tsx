@@ -1,4 +1,5 @@
 "use client";
+import { icons } from "@/public/img";
 import Image from "next/image";
 
 export const Logo = () => {
@@ -8,7 +9,7 @@ export const Logo = () => {
       height={130}
       width={130}
       alt="logo"
-      src={"https://elione.bkt.net.vn/Content/images/logo-wide.png"}
+      src={icons.logo}
     />
   );
 };

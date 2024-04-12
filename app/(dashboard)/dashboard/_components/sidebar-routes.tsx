@@ -40,6 +40,34 @@ const routes = [
     label: "Contact",
     href: "/dashboard/contact",
   },
+  {
+    label: "WhyChooseProgram",
+    href: "/dashboard/whychooseprogram",
+  },
+  {
+    label: "Receive",
+    href: "/dashboard/receive",
+  },
+  {
+    label: "Target",
+    href: "/dashboard/target",
+  },
+  {
+    label: "InformationProgram",
+    href: "/dashboard/informationprogram",
+  },
+  {
+    label: "Time",
+    href: "/dashboard/time",
+  },
+  {
+    label: "Schedule",
+    href: "/dashboard/schedule",
+  },
+  {
+    label: "Social Network",
+    href: "/dashboard/socialnetwork",
+  },
 ];
 
 export const SidebarRoutes = () => {

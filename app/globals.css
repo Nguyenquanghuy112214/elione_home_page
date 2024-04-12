@@ -330,46 +330,6 @@
   @apply lg:block sm:hidden;
 }
 /*  */
-/* article {
-  padding: 20px;
-  font-family: sans-serif;
-  color: #fff;
-  position: relative;
-  background: linear-gradient(-135deg, transparent 1.5em, #3e6267 0) no-repeat;
-  background-repeat: no-repeat;
-  border-radius: 5px;
-}
-
-article::after {
-  content: "";
-  width: 2.13em;
-  height: 2.15em;
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: inline-block;
-  background: linear-gradient(-135deg, transparent 1.5em, #7bc2d2 0) no-repeat;
-  border-bottom-left-radius: 5px;
-  background-repeat: no-repeat;
-}
-
-article.curved {
-  background: linear-gradient(-150deg, transparent 1.5em, #3e6267 0) no-repeat;
-}
-
-article.curved::after {
-  height: 3.2em;
-  width: 1.35em;
-  transform: translate(-0.8em, -0.73em) rotate(-36.7deg);
-  background: linear-gradient(
-    to left bottom,
-    transparent 50%,
-    #7da9b3 0,
-    #d2f1fb 27px,
-    #025364
-  );
-  box-shadow: 0 6px 4px -4px #112429;
-} */
 
 article {
   padding: 30px;
@@ -386,6 +346,67 @@ article {
     no-repeat;
   background-repeat: no-repeat;
   border-radius: 5px;
+}
+
+article.curved-1 {
+  background: linear-gradient(
+      -60deg,
+      transparent 2.5em,
+      #2aa0c6 0,
+      #69cae3 0,
+      #0581bf
+    )
+    no-repeat;
+}
+article.curved-2 {
+  background: linear-gradient(
+      -60deg,
+      transparent 2.5em,
+      #367cba 0,
+      #60aadf 0,
+      #1147b7
+    )
+    no-repeat;
+}
+article.curved-3 {
+  background: linear-gradient(
+      -60deg,
+      transparent 2.5em,
+      #e38700 0,
+      #f49b01 0,
+      #c13500
+    )
+    no-repeat;
+}
+article.curved-4 {
+  background: linear-gradient(
+      -60deg,
+      transparent 2.5em,
+      #80027d 0,
+      #93029a 0,
+      #63009b
+    )
+    no-repeat;
+}
+article.curved-5 {
+  background: linear-gradient(
+      -60deg,
+      transparent 2.5em,
+      #c90800 0,
+      #f00000 0,
+      #aa0000
+    )
+    no-repeat;
+}
+article.curved-6 {
+  background: linear-gradient(
+      -60deg,
+      transparent 2.5em,
+      #d3d4cf 0,
+      #7cb415 0,
+      #e26906
+    )
+    no-repeat;
 }
 
 article::after {
@@ -433,10 +454,41 @@ article.curved::before {
 .border-arrow {
   background: linear-gradient(to bottom, #6eb01a, #f7fac3) padding-box,
     linear-gradient(to bottom, #abd267, #acd366, #abd267) border-box;
-
   border-radius: 50em;
   border: 3px solid transparent;
 }
+
+.border-arrow-2 {
+  background: linear-gradient(to bottom, #c10afb, #eb36fb) padding-box,
+    linear-gradient(to bottom, #e35ff9, #db2efc, #dc29f6) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+}
+.border-arrow-1 {
+  background: linear-gradient(to bottom, #019bc3, #00d6e6) padding-box,
+    linear-gradient(to bottom, #01c1d3, #00c1d9, #02c2d4) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+}
+.border-arrow-3 {
+  background: linear-gradient(to bottom, #0d0dee, #3645f8) padding-box,
+    linear-gradient(to bottom, #2334ec, #242cf3, #3848f5) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+}
+.border-arrow-4 {
+  background: linear-gradient(to bottom, #ef1e0a, #facd37) padding-box,
+    linear-gradient(to bottom, #f29a5a, #f1751c, #f77b1c) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+}
+.border-arrow-5 {
+  background: linear-gradient(to bottom, #ac0e0b, #ee5943) padding-box,
+    linear-gradient(to bottom, #c7241b, #ce3627, #ce4d42) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+}
+
 .arrow-down:after {
   content: "";
   position: absolute;
@@ -453,6 +505,42 @@ article.curved::before {
 
 .shadow-step {
   box-shadow: 0px 8px 5px -3px #e3e3e3;
-
 }
 
+.section::-webkit-scrollbar {
+  width: 5px;
+}
+.section::-webkit-scrollbar-track {
+  background-color: rgb(255, 255, 255);
+}
+.section::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-primary to-secondary;
+  border-radius: 50px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  display: none;
+}
+
+.section:hover::-webkit-scrollbar-thumb {
+  display: block;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+body::-webkit-scrollbar-track {
+  background-color: rgb(255, 255, 255);
+}
+body::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-primary to-secondary;
+  border-radius: 50px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  display: none;
+}
+
+body:hover::-webkit-scrollbar-thumb {
+  display: block;
+}
+
+.ql-editor {
+  @apply text-base !p-0;
+}

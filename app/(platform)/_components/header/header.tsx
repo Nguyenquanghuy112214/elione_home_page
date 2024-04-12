@@ -101,15 +101,23 @@
 
 "use client";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ContactHeader from "./contact_header";
 import MenuMb from "./menu_mb";
 import ScrollToTopButton from "../scrolltotop/scrolltotop";
 import { Contact } from "@prisma/client";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { icons } from "@/public/img";
+import LoadingModal from "../../program/loading";
+
+interface MenuItem {
+  title: string;
+  path?: string;
+  children?: MenuItem[];
+}
 function Header({ dataContact }: { dataContact: Contact[] }) {
   const router = useRouter();
-  const menu = [
+  const menu: MenuItem[] = [
     {
       title: "Giới thiệu",
       path: "/",
@@ -117,25 +125,27 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
     {
       title: "Chương trình học",
       path: "/program",
-      childrent: [
+
+      children: [
         {
           title: "Trại Hè Tiếng Anh 2024",
+          path: "/program",
         },
       ],
     },
     {
       title: "Tin tức sự kiện",
-      path: "/news",
-      childrent: [
+      children: [
         {
           title: "Tiếng Anh ABC",
+          path: "/news",
         },
       ],
     },
     {
       title: "Học online",
       path: "/online",
-      childrent: [
+      children: [
         {
           title: "Tiếng Anh Ielts",
         },
@@ -148,7 +158,20 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
       title: "Tuyển dụng",
     },
   ];
+  const pathname = usePathname();
 
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setLoading(true);
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => {
+      // 👇️ clear timeout when the component unmounts
+      clearTimeout(timer);
+    };
+  }, [pathname]);
   useEffect(() => {
     // Xử lý cuộn trang
     const handleScroll = () => {
@@ -169,8 +192,10 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <div className=" ">
+      {/* <LoadingModal loading={loading} /> */}
       <ScrollToTopButton />
       <div className="container grid grid-cols-12 sm:hidden md:grid pt-5">
         <div className=" col-span-3"></div>
@@ -182,7 +207,7 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
         <div className="container grid grid-cols-12 pt-[10px] pb-[30px]">
           <div className="  sm:col-span-6 md:col-span-3">
             <Image
-              src="https://elione.bkt.net.vn/Content/images/logo-wide.png"
+              src={icons.logo}
               className=" object-contain sm:w-[120px] md:w-[200px]"
               height={100}
               width={200}
@@ -198,11 +223,22 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
                   key={index}
                 >
                   {item?.title}
-                  {item?.childrent && (
+                  {item?.children && (
                     <ul className=" absolute left-0 top-[100%] text-black hover:text-secondary hover:border-secondary invisible opacity-0  group-hover:opacity-100 group-hover:visible transition-all border-l-[2px] border-solid border-black pl-3">
-                      {item?.childrent?.map((chi, i) => (
-                        <li key={index}>{chi.title}</li>
-                      ))}
+                      {item.children.map((chi, i) => {
+                        console.log("test", chi.path);
+
+                        return (
+                          <li
+                            onClick={() => {
+                              router.push(chi?.path ? chi.path : "");
+                            }}
+                            key={index}
+                          >
+                            {chi.title}
+                          </li>
+                        );
+                      })}
                     </ul>
                   )}
                 </li>

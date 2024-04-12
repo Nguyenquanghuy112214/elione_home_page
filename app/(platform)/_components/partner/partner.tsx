@@ -53,7 +53,7 @@ function PartnerCl({data}:{data:Partner[]}) {
               alt="img"
               width={400}
               height={400}
-              className=" w-full h-[100px]"
+              className=" w-full h-[100px] object-contain"
             />
           </SwiperSlide>
         ))}

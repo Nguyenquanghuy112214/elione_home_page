@@ -1,11 +1,21 @@
 import React from "react";
 import { MdOutlineArrowRight } from "react-icons/md";
-import Time from "./time";
+// import Time from "./time";
 import LeftInformation from "./leftinformation/leftinformation";
 import RightInformation from "./leftinformation/rightinformation";
 import { FaPlay } from "react-icons/fa";
+import {
+  Step,
+  Time,
+} from "@prisma/client";
 
-function InformationSub() {
+function InformationSub({
+  dataTime,
+  data,
+}: {
+  dataTime: Time[];
+  data: Step[];
+}) {
   return (
     <div className=" container sm:my-3 md:py-10">
       <div className=" flex sm:gap-x-2 md:gap-x-10 items-center">
@@ -17,8 +27,8 @@ function InformationSub() {
         </div>
       </div>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 md:px-8 sm:mt-3 md:mt-7 sm:gap-y-10 md:gap-x-10">
-        <LeftInformation />
-        <RightInformation />
+        <LeftInformation dataTime={dataTime}/>
+        <RightInformation data={data}/>
       </div>
       <div className=" flex items-center justify-center mt-4">
         <div className=" bg-gradient-to-r from-[#f24522] from-0%  to-[#efc22d] to-80% px-2 py-1 mt-5 rounded-full text-white sm:w-[170px] md:w-[200px] flex items-center h-[60px]">

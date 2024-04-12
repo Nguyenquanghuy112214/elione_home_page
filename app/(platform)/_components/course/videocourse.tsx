@@ -19,7 +19,7 @@ function VideoCourse({ item }: { item: Course }) {
         <div className="  ">
           <div
             className={cn(
-              " relative  videodemo cursor-pointer  bg-center bg-cover bg-no-repeat sm:h-[150px] md:h-[200px]  flex items-center justify-center flex-col gap-7 "
+              " shadow-md relative  videodemo cursor-pointer  bg-center bg-cover bg-no-repeat sm:h-[150px] md:h-[200px]  flex items-center justify-center flex-col gap-7 "
             )}
           >
             <Image fill src={item?.img} alt="img" className=" object-cover" />

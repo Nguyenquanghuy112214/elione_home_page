@@ -31,4 +31,5 @@ export const icons = {
   basvg: require("./ba.svg"),
   schedulesvg: require("./schedule.svg"),
   chartsvg: require("./chart.svg"),
+  logo: require("./logo.png"),
 };

@@ -1,18 +1,18 @@
-import React from 'react'
-import Time from '../time'
-import DetailInformation from '../detailinformation'
+import React from "react";
+import Time from "../time";
+import DetailInformation from "../detailinformation";
+import { Time as TimeCl } from "@prisma/client";
 
-function LeftInformation() {
-  const THREE_DAYS_IN_MS = 3 * 24 * 60 * 60 * 1000;
+function LeftInformation({ dataTime }: { dataTime: TimeCl[] }) {
   const NOW_IN_MS = new Date().getTime();
-
-  const dateTimeAfterThreeDays = NOW_IN_MS + THREE_DAYS_IN_MS;
+  const TIME_DIFFERENCE = dataTime[0]?.timeend.getTime()  - NOW_IN_MS
+  const dateTimeAfterThreeDays = NOW_IN_MS + TIME_DIFFERENCE;
   return (
     <div>
-        <Time targetDate={dateTimeAfterThreeDays}/>
-        <DetailInformation/>
+      <Time targetDate={dateTimeAfterThreeDays} />
+      <DetailInformation dataTime={dataTime} />
     </div>
-  )
+  );
 }
 
-export default LeftInformation
+export default LeftInformation;

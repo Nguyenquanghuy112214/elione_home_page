@@ -1,16 +1,11 @@
 "use client";
+import { PreviewReactQuill } from "@/components/preview-reactquill";
+import { WhyChooseProgram } from "@prisma/client";
 import Image from "next/image";
 import React from "react";
 
-interface ItemProps {
-  img: string;
-  imgfooter: string;
-  title: string;
-  category: string;
-  subtitle: string;
-  description: string;
-}
-function WhychooseElioneItem({ data }: { data: ItemProps }) {
+
+function WhychooseElioneItem({ data }: { data: WhyChooseProgram }) {
   return (
     <div className="sm:px-5">
       <div className="flex items-center justify-center relative flex-col">
@@ -23,18 +18,18 @@ function WhychooseElioneItem({ data }: { data: ItemProps }) {
         />
         <div className=" bg-white p-4 z-0 rounded-[14px] mt-[-55px] drop-shadow-md relative">
           <div className="signs flex items-center justify-center bg-gradient-to-r from-[#01c0db] to-[#01c5a6] text-white uppercase font-semibold text-[18px] ">
-            {data?.category}
+            {data?.title1}
           </div>
           <div className=" py-2 rounded-lg boxed shadow-md sm:px-3 md:px-8">
             <div className=" rounded-lg pt-10 flex items-center justify-start gap-y-2 flex-col">
               <h1 className=" font-semibold uppercase text-[20px]">
-                {data?.title}
+                {data?.title2}
               </h1>
               <h1 className=" font-semibold uppercase text-[20px]">
-                {data?.subtitle}
+                {data?.title3}
               </h1>
               <h1 className="text-justify tracking-tight text-sm font-medium line-clamp-6 mt-3">
-                {data?.description}
+                <PreviewReactQuill value={data?.description}/>
               </h1>
             </div>
           </div>
@@ -42,7 +37,7 @@ function WhychooseElioneItem({ data }: { data: ItemProps }) {
           <div className=" img-circle">
             <div className=" img-circle-children overflow-hidden">
               <Image
-                src={data?.imgfooter}
+                src={data?.subimg}
                 alt="img"
                 width={200}
                 height={200}
