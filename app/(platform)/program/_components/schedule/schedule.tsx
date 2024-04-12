@@ -38,7 +38,7 @@ function ScheduleCl({
           alt="img"
           width={1000}
           height={1000}
-          className=" w-full h-auto"
+          className=" w-full sm:h-[300px] md:h-[600px] 2xl:h-[700px] object-contain"
         />
       </div>
       <div data-aos="zoom-in" data-aos-duration="1000" className=" mt-6">

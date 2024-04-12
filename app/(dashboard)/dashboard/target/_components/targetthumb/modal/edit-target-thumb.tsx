@@ -68,7 +68,6 @@ export const EditTargetThumbModal = () => {
     try {
       //   api
       const res = await editTargetThumb(values);
-      console.log("res", res);
 
       if (!!res.success) {
         toast.success("Thay đổi thành công");

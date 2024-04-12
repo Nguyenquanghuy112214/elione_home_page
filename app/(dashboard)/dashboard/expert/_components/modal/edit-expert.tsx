@@ -69,7 +69,6 @@ export const EditExpertModal = () => {
     try {
       //   api
       const res = await editExpert(values);
-      console.log("res", res);
 
       if (!!res.success) {
         toast.success("Thay đổi thành công");

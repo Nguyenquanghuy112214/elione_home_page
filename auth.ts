@@ -25,8 +25,6 @@ export const {
   trustHost: true,
   callbacks: {
     async signIn({ user, account }) {
-      console.log("user", user);
-      console.log("account", account);
 
       // Allow OAuth without email verification
 
