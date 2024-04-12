@@ -152,7 +152,6 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  console.log("hehe", pathname?.startsWith("/program"));
 
   return (
     <div className=" ">

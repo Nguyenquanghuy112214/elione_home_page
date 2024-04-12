@@ -48,7 +48,9 @@ function Banner1() {
           >
             Khai Giảng 01/6 - 21/08/2024
           </motion.div>
-          <Separator className=" w-[40%] h-[2px] gradient_banner my-2 2xl:w-[45%]" />
+          <motion.div variants={tranformY(0.4, 1.8)}>
+            <Separator className=" w-[40%] h-[2px] gradient_banner my-2 2xl:w-[45%]" />
+          </motion.div>
           {/*  */}
           <motion.div
             variants={tranformY(0.7, 1.8)}
