@@ -546,7 +546,12 @@ body:hover::-webkit-scrollbar-thumb {
 .ql-editor {
   @apply text-base !p-0;
 }
-
+.ql-container {
+  /* @font-face {
+    font-family: "Inter";
+    src: url('../components/fonts/Inter-V.ttf');
+  } */
+}
 .ql-blank {
   min-height: 100px !important;
 }

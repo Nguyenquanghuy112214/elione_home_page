@@ -5,6 +5,7 @@ import React from "react";
 import { MdOutlineArrowRight } from "react-icons/md";
 import Description from "./description";
 import { Schedule, ScheduleThumbnail } from "@prisma/client";
+import { MontserratBlackF } from "@/components/fonts_application/fonts";
 
 function ScheduleCl({
   dataThumb,
@@ -23,7 +24,7 @@ function ScheduleCl({
       >
         <MdOutlineArrowRight className=" text-[#27dae7] text-[50px]" />
         <div className="">
-          <div className=" text-center sm:text-[22px] md:text-text_h1 uppercase text-[#9f9f9f]">
+          <div className={`${MontserratBlackF.className} text-center sm:text-[22px] md:text-text_h1 uppercase text-[#9f9f9f]`}>
             Thời khóa biểu trại hè
           </div>
         </div>

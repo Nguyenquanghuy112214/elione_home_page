@@ -9,7 +9,6 @@ import {
   EffectCreative,
   Autoplay,
 } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/effect-creative";
 import "swiper/css/effect-fade";
@@ -17,13 +16,15 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import VideoEvaluate from "./videoevaluate";
 import { Evaluate } from "@prisma/client";
+import { InterVF } from "@/components/fonts_application/fonts";
 function EvaluateCl({ data }: { data: Evaluate[] }) {
+
   return (
     <div className=" container my-14">
       <div
         data-aos="fade-up"
         data-aos-duration="1000"
-        className=" text-center font-medium uppercase sm:text-[26px] md:text-[32px] my-14"
+        className={`${InterVF.className}  text-center font-medium uppercase sm:text-[26px] md:text-[32px] my-14`}
       >
         Đánh giá của phụ huynh
       </div>

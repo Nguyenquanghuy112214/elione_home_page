@@ -8,6 +8,7 @@ import {
   Step,
   Time,
 } from "@prisma/client";
+import { MontserratBlackF, OpenSansBoldItalicF } from "@/components/fonts_application/fonts";
 
 function InformationSub({
   dataTime,
@@ -22,7 +23,7 @@ function InformationSub({
         data-aos-duration="1000" className=" flex sm:gap-x-2 md:gap-x-10 items-center">
         <MdOutlineArrowRight className=" text-[#27dae7] text-[50px]" />
         <div className="">
-          <div className=" text-center sm:text-[22px] md:text-text_h1 uppercase text-[#9f9f9f]">
+          <div className= {`${MontserratBlackF.className} text-center sm:text-[22px] md:text-text_h1 uppercase text-[#9f9f9f]`}>
             Thông tin chương trình
           </div>
         </div>

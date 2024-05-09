@@ -5,6 +5,7 @@ import { icons } from "@/public/img";
 import { Step } from "@prisma/client";
 import { PreviewReactQuill } from "@/components/preview-reactquill";
 import { cn } from "@/lib/utils";
+import { OpenSansBoldF } from "@/components/fonts_application/fonts";
 
 function RightInformation({ data }: { data: Step[] }) {
   return (
@@ -28,7 +29,7 @@ function RightInformation({ data }: { data: Step[] }) {
             <div className=" sm:text-[14px] md:text-[16px] text-[#a4949a] uppercase text-center sm:pl-0 md:pl-4 mt-5">
               {item?.title}
             </div>
-            <div className=" sm:text-[15px] md:text-[18px] text-[#e64765] uppercase text-center">
+            <div className={`${OpenSansBoldF.className}  sm:text-[15px] md:text-[18px] text-[#e64765] uppercase text-center`}>
               {item?.subtitle}
             </div>
             <div className=" text-[#b1a0a7] sm:text-[14px] md:text-[17px] leading-[18px] sm:hidden md:block">

@@ -1,6 +1,7 @@
 import React from "react";
 import InfomationItem from "./infomationitem";
 import { Information } from "@prisma/client";
+import { InterVF } from "@/components/fonts_application/fonts";
 
 function InfomationCl({ data }: { data: Information[] }) {
   
@@ -9,7 +10,7 @@ function InfomationCl({ data }: { data: Information[] }) {
       <div
         data-aos="fade-up"
         data-aos-duration="1000"
-        className=" text-center font-medium uppercase sm:text-[26px] md:text-[32px] my-14"
+        className= {`${InterVF.className} text-center font-medium uppercase sm:text-[26px] md:text-[32px] my-14`}
       >
         Thông tin - Tư vấn học bổng du học
       </div>

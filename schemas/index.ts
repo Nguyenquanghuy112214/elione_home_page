@@ -113,6 +113,21 @@ export const editTimeSchema = z.object({
   }),
 });
 
+export const createRegisterNowSchema = z.object({
+  name: z.string().min(1, {
+    message: "Vui lòng họ tên",
+  }),
+  email: z.string().email().min(1, {
+    message: "Vui lòng nhập email",
+  }),
+  phone: z.string().min(1, {
+    message: "Vui lòng nhập số điện thoại",
+  }),
+  age: z.string().min(1, {
+    message: "Vui lòng nhập độ tuổi",
+  }),
+  question: z.string(),
+});
 export const createProcessSchema = z.object({
   img: z.string().min(1, {
     message: "Vui lòng nhập ảnh",

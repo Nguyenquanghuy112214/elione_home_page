@@ -60,6 +60,7 @@ import { EditWhyChooseModal } from "@/app/(dashboard)/dashboard/whychoose/_compo
 import { CreateWhyChooseProgramModal } from "@/app/(dashboard)/dashboard/whychooseprogram/_components/modal/create-why-choose-program";
 import { DeleteWhyChooseProgramModal } from "@/app/(dashboard)/dashboard/whychooseprogram/_components/modal/delete-why-choose-program";
 import { EditWhyChooseProgramModal } from "@/app/(dashboard)/dashboard/whychooseprogram/_components/modal/edit-why-choose-program";
+import { CreateRegisterNowModal } from "@/components/form-register-now";
 import { useEffect, useState } from "react";
 
 export const ModalProvider = () => {
@@ -154,6 +155,8 @@ export const ModalProvider = () => {
       <CreateSocialModal/>
       <EditSocialModal/>
       <DeleteSocialModal/>
+
+      <CreateRegisterNowModal/>
     </>
   );
 };

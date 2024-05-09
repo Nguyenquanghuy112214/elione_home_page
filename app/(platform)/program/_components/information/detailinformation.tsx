@@ -6,6 +6,7 @@ import Image from "next/image";
 import { icons } from "@/public/img";
 import { Time } from "@prisma/client";
 import { formatDay } from "@/contants/formatDay";
+import { OpenSansBoldItalicF } from "@/components/fonts_application/fonts";
 function DetailInformation({ dataTime }: { dataTime: Time[] }) {
   if (!dataTime) return null;
   return (
@@ -14,24 +15,32 @@ function DetailInformation({ dataTime }: { dataTime: Time[] }) {
         <div>
           <FaStar className=" text-[#57bfce] sm:text-[15px] md:text-[20px]" />
         </div>
-        <div className=" text-[#8c8f9c] sm:text-base md:text-lg">
-          Thời gian đăng kí: {formatDay(dataTime[0]?.timestart)} -{" "}
-          {formatDay(dataTime[0]?.timeend)}
+        <div
+          className={`${OpenSansBoldItalicF.className} text-[#8c8f9c] sm:text-base md:text-lg`}
+        >
+          Thời gian đăng kí:{" "}
+          <span className=" font-sans">
+            {" "}
+            {formatDay(dataTime[0]?.timestart)} -{" "}
+            {formatDay(dataTime[0]?.timeend)}
+          </span>
         </div>
       </div>
       <div className=" flex items-center justify-start gap-x-2">
         <div>
           <FaStar className=" text-[#57bfce] sm:text-[15px] md:text-[20px]" />
         </div>
-        <div className=" text-[#8c8f9c] sm:text-base md:text-lg">
-          Địa điểm: {dataTime[0]?.location}
+        <div
+          className={`${OpenSansBoldItalicF.className} text-[#8c8f9c] sm:text-base md:text-lg`}
+        >
+          Địa điểm: <span className=" font-sans">{dataTime[0]?.location}</span>
         </div>
       </div>
       <div className=" flex items-center justify-start gap-x-2">
         <div>
           <FaStar className=" text-[#57bfce] sm:text-[15px] md:text-[20px]" />
         </div>
-        <div className=" text-[#8c8f9c] sm:text-base md:text-lg">
+        <div className= {`${OpenSansBoldItalicF.className} text-[#8c8f9c] sm:text-base md:text-lg`}>
           Tỉ trọng thời lượng các môn học
         </div>
       </div>

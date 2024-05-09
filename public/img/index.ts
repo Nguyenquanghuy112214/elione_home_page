@@ -25,6 +25,7 @@ export const icons = {
   logo_footer: require("./logo_footer.png"),
   robot: require("./robot.svg"),
   arrow: require("./arrow.svg"),
+  arrowpng: require("./Arrow.png"),
   target: require("./target.svg"),
   motsvg: require("./mot.svg"),
   haisvg: require("./hai.svg"),

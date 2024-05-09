@@ -3,15 +3,16 @@ import { icons } from "@/public/img";
 import React from "react";
 import WhychooseElioneItem from "./whychoose-elione-item";
 import { WhyChooseProgram } from "@prisma/client";
+import { InterVF } from "@/components/fonts_application/fonts";
 
 function WhychooseElione({ data }: { data: WhyChooseProgram[] }) {
   return (
     <div className=" bg-gradient-to-br from-[#f8f8f8] from-25% to-[#bcbebd] relative z-0">
-      <div className=" py-10">
+      <div className={`py-10 ${InterVF.className}`}>
         <div
           data-aos="fade-up"
           data-aos-duration="1000"
-          className=" text-center text-text_h1 uppercase"
+          className={` text-center text-text_h1 uppercase `}
         >
           Lý do chọn Elione ?
         </div>

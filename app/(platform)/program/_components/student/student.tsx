@@ -1,3 +1,4 @@
+import { GothamMediumF, InterVF } from "@/components/fonts_application/fonts";
 import { cn } from "@/lib/utils";
 import { Receive } from "@prisma/client";
 import React from "react";
@@ -5,7 +6,7 @@ import React from "react";
 function Student({ data }: { data: Receive[] }) {
   return (
     <div className="bg-gradient-to-br from-[#f8f8f8] from-25% to-[#bcbebd] relative z-0 mt-[198px]">
-      <div className=" pt-10 pb-20 container">
+      <div className={`pt-10 pb-20 container ${InterVF.className}`}>
         <div
           data-aos="fade-up"
           data-aos-duration="1000"
@@ -16,7 +17,7 @@ function Student({ data }: { data: Receive[] }) {
         <div
           data-aos="fade-up"
           data-aos-duration="1000"
-          className=" text-center uppercase font-semibold"
+          className={` text-center uppercase font-normal`}
         >
           Khi tham gia trại hè tiếng anh Elione
         </div>
@@ -38,7 +39,7 @@ function Student({ data }: { data: Receive[] }) {
         >
           {data?.map((item, i) => (
             <article className={cn("curved", `curved-${i}`)} key={i}>
-              <h2 className=" uppercase">{item?.title}</h2>
+              <h2 className={`${GothamMediumF.className} uppercase`}>{item?.title}</h2>
             </article>
           ))}
         </div>

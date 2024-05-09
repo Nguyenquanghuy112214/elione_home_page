@@ -7,6 +7,7 @@ import { Contact, Course, Expert, SocialNetwork } from "@prisma/client";
 import FooterItem1 from "./footeritem1";
 import FooterItem2 from "./footeritem2";
 import ContactCl from "./contact";
+import { InterVF } from "@/components/fonts_application/fonts";
 
 function Footer({
   dataCourse,
@@ -26,7 +27,7 @@ function Footer({
       <div
         data-aos="zoom-down"
         data-aos-duration="1000"
-        className=" grid container grid-cols-12 gap-y-10 py-8 min-h-[200px] gap-4"
+        className={`${InterVF.className} grid container grid-cols-12 gap-y-10 py-8 min-h-[200px] gap-4`}
       >
         <div className=" sm:col-span-12 md:col-span-6 lg:col-span-3">
           {" "}

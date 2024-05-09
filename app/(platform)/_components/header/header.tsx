@@ -1,5 +1,3 @@
-
-
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -14,7 +12,7 @@ import Link from "next/link";
 import IconMenuMb from "./iconmenumb";
 import { menu } from "@/data/menu";
 import { cn } from "@/lib/utils";
-
+import { InterVF } from "@/components/fonts_application/fonts";
 function Header({ dataContact }: { dataContact: Contact[] }) {
   const router = useRouter();
 
@@ -79,6 +77,7 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
                   onClick={() => router.push(item?.path ? item?.path : "")}
                   className={cn(
                     " group font-semibold uppercase cursor-pointer hover:text-secondary transition-all relative text-sm py-2 h-full flex items-center justify-center",
+                    `${InterVF.className}`,
                     `${
                       (pathname === "/" && item.path === "/") ||
                       pathname === item.path ||
@@ -104,6 +103,7 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
                               }
                             }}
                             className={cn(
+                              `${InterVF.className}`,
                               `${
                                 (pathname === "/" && chi.path === "/") ||
                                 pathname === chi.path ||
@@ -113,7 +113,9 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
                               }`
                             )}
                           >
-                            <Link className="" href={"/program"}>{chi.title}</Link>
+                            <Link className="" href={"/program"}>
+                              {chi.title}
+                            </Link>
                           </li>
                         );
                       })}

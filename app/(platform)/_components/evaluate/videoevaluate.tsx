@@ -7,6 +7,7 @@ import Image from "next/image";
 import { icons } from "@/public/img";
 import { Evaluate } from "@prisma/client";
 import _ from "lodash";
+import { InterVF } from "@/components/fonts_application/fonts";
 
 function VideoEvaluate({ item }: { item: Evaluate }) {
   const numberStar = Number(item?.star);
@@ -34,7 +35,7 @@ function VideoEvaluate({ item }: { item: Evaluate }) {
         </div>
       </DialogTrigger>
       <div className=" px-4 py-2 border-[2px] border-solid border-[#ccc] shadow-md min-h-[200px] flex flex-col">
-        <div className=" text-secondary mb-2 leading-5 font-semibold text-[15px] line-clamp-3">
+        <div className={`${InterVF.className} text-secondary mb-2 leading-5 font-semibold text-[15px] line-clamp-3`}>
           {item?.title}
         </div>
         <div className=" mt-auto">
@@ -66,7 +67,7 @@ function VideoEvaluate({ item }: { item: Evaluate }) {
               }
             })}
           </div>
-          <div className=" flex items-center justify-start gap-x-1 text-black">
+          <div className={`${InterVF.className} flex items-center justify-start gap-x-1 text-black`}>
             <User
               className=" text-secondary"
               size={16}
@@ -75,7 +76,7 @@ function VideoEvaluate({ item }: { item: Evaluate }) {
             />
             Phụ huynh học viên: {item?.parentstudent}
           </div>
-          <div className=" flex md:items-center sm:flex-col sm:items-start sm:gap-x-0 sm:gap-y-2 md:justify-between md:flex-row md:gap-x-6 mt-2">
+          <div className={`${InterVF.className} flex md:items-center sm:flex-col sm:items-start sm:gap-x-0 sm:gap-y-2 md:justify-between md:flex-row md:gap-x-6 mt-2`}>
             <div className=" flex items-center justify-start gap-x-1">
               <Trophy
                 size={16}

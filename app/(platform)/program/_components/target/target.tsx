@@ -7,6 +7,7 @@ import ArrowSVG from "./arrowsvg";
 import Targetsvg from "./targetsvg";
 import { Target, TargetThumbnail } from "@prisma/client";
 import { cn } from "@/lib/utils";
+import {  MontserratBlackF, MontserratMediumF, OpenSansBoldItalicF, OpenSansLightF, OpenSansSemiboldF } from "@/components/fonts_application/fonts";
 function TargetCl({
   dataThumb,
   data,
@@ -26,10 +27,10 @@ function TargetCl({
       >
         <MdOutlineArrowRight className=" text-[#27dae7] text-[50px]" />
         <div className="">
-          <div className=" text-center sm:text-[22px] md:text-text_h1 uppercase text-[#9f9f9f]">
+          <div className={` ${MontserratBlackF.className} text-center sm:text-[22px] md:text-text_h1 uppercase text-[#9f9f9f]`}>
             Mục tiêu chương trình
           </div>
-          <h2 className="text-center sm:text-[14px] md:text-[28px] uppercase text-[#9f9f9f]">
+          <h2 className={`${MontserratMediumF.className} text-center sm:text-[14px] md:text-[28px] uppercase text-[#9f9f9f]`}>
             Vững Nền Tảng - Sẵn Sàng Khám Phá
           </h2>
         </div>
@@ -53,9 +54,9 @@ function TargetCl({
           {/* <div className=" relative md:block sm:hidden"> */}
           <div className=" w-full relative">
             <ArrowSVG />
-            <div className=" text-[#7d838f] sm:text-sm md:text-base absolute top-[50%] sm:left-[105px] md:left-[140px] translate-y-[-50%] sm:w-[250px] md:w-[350px]">
+            <div className= {`${OpenSansSemiboldF.className} text-[#7d838f] sm:text-sm md:text-base absolute top-[50%] sm:left-[105px] md:left-[140px] translate-y-[-50%] sm:w-[250px] md:w-[400px] lg:w-[450px]`}>
               {data[0]?.title}
-              <div className=" text-2xl font-medium border-arrow text-white absolute top-[50%] translate-y-[-50%] left-[-70px] md:w-[50px] md:h-[50px] sm:w-[44px] sm:h-[44px] rounded-full  flex items-center justify-center p-3 shadow-arrow">
+              <div className={ `${OpenSansSemiboldF.className} text-2xl font-medium border-arrow text-white absolute top-[50%] translate-y-[-50%] sm:left-[-70px] md:left-[-80px] md:w-[60px] md:h-[60px] sm:w-[44px] sm:h-[44px] rounded-full  flex items-center justify-center p-3 shadow-arrow`}>
                 1
               </div>
             </div>
@@ -63,18 +64,20 @@ function TargetCl({
           {/* </div> */}
         </div>
 
-        <div className=" col-span-1">
+        <div className=" col-span-1 space-y-3">
           {data?.map((item, i) => {
             if (i > 0) {
               return (
-                <div className=" w-full relative" key={i}>
-                  <ArrowSVG />
-                  <div className=" text-[#7d838f] sm:text-sm md:text-base absolute top-[50%] sm:left-[105px] md:left-[140px] translate-y-[-50%] sm:w-[250px] md:w-[350px]">
+                <div className=" w-full relative overflow-hidden" key={i}>
+                  <Image src={icons.arrowpng} width={1000} height={400} className=" w-full" alt="img"/>
+                  {/* <ArrowSVG /> */}
+                  <div className={  `${OpenSansSemiboldF.className} text-[#7d838f] sm:text-sm md:text-base absolute top-[50%] sm:left-[105px] md:left-[140px] translate-y-[-50%] sm:w-[250px] md:w-[400px] lg:w-[450px]` }>
                     {item?.title}
                     <div
                       className={cn(
-                        " text-2xl font-medium border-arrow text-white absolute top-[50%] translate-y-[-50%] left-[-70px] md:w-[50px] md:h-[50px] sm:w-[44px] sm:h-[44px] rounded-full  flex items-center justify-center p-3 shadow-arrow",
-                        `border-arrow-${i}`
+                        " text-2xl font-medium border-arrow text-white absolute top-[50%] translate-y-[-50%] sm:left-[-70px] md:left-[-90px] md:w-[60px] md:h-[60px] sm:w-[44px] sm:h-[44px] rounded-full  flex items-center justify-center p-3 shadow-arrow",
+                        `border-arrow-${i}`,
+                        `${OpenSansSemiboldF.className}`
                       )}
                     >
                       {i + 1}

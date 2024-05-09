@@ -5,7 +5,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { staggerContainer, tranformX, tranformY, zoomIn } from "@/lib/motion";
 import { Separator } from "@/components/ui/separator";
 import { FaPlay } from "react-icons/fa";
+import { useModalRegisterNow } from "@/hooks/use-modal-store-register-now";
+import {
+  DINCondensedBoldF,
+  InterVF,
+} from "@/components/fonts_application/fonts";
 function Banner1() {
+  const { onOpen } = useModalRegisterNow();
+
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -29,10 +36,12 @@ function Banner1() {
         // style={{ y: textY }}
         className=" h-full sm:px-5 md:px-10 flex flex-col items-end sm:justify-end md:justify-center gap-y-10 mt-[-50px]"
       >
-        <div className=" flex flex-col items-center justify-center gap-y-[2px]">
+        <div
+          className={` flex flex-col items-center justify-center gap-y-[2px] ${InterVF.className}`}
+        >
           <motion.h1
             variants={tranformY(0.4, 1.8)}
-            className="sm:mb-2 md:mb-10 text_flip font-semibold bg-gradient-to-t from-text_banner from-20% via-white inline-block via-20% to-text_banner to-40% text-transparent sm:tracking-tighter bg-clip-text sm:text-[20px]  md:text-[40px] 2xl:text-[50px] md:tracking-tight"
+            className={`sm:mb-2 md:mb-10 text_flip font-semibold bg-gradient-to-t from-text_banner from-20% via-white inline-block via-20% to-text_banner to-40% text-transparent sm:tracking-tighter bg-clip-text sm:text-[20px]  md:text-[40px] 2xl:text-[50px] md:tracking-tight`}
           >
             VỮNG NỀN TẢNG - SẴN SÀNG BỨT PHÁ
           </motion.h1>
@@ -75,7 +84,10 @@ function Banner1() {
             variants={tranformY(1.3, 2.2)}
             className=" bg-gradient-to-r from-[#f24522] from-0%  to-[#efc22d] to-80% px-2 py-1 mt-5 rounded-full text-white flex items-center min-w-[200px] h-[60px]"
           >
-            <div className=" cursor-pointer border-2 w-full border-solid border-white rounded-full flex items-center  uppercase  justify-between bg-transparent">
+            <div
+              onClick={() => onOpen("createRegisterNow")}
+              className=" cursor-pointer border-2 w-full border-solid border-white rounded-full flex items-center  uppercase  justify-between bg-transparent"
+            >
               <h1 className="p-2 2xl:text-[20px]">Đăng ký ngay</h1>
               <div className=" w-[40px] h-[40px] 2xl:w-[48px] 2xl:h-[48px] bg-white rounded-full flex items-center justify-center">
                 <FaPlay className=" text-[#f0be2b] ml-1" />

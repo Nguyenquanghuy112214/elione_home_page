@@ -11,8 +11,8 @@ function ArrowSVG() {
       y="0px"
       viewBox="0 0 990 301"
       enableBackground="new 0 0 990 301"
-      xmlSpace="preserve"
-      // width={"auto"}
+      // xmlSpace="preserve"
+      // width={1700}
     >
       <linearGradient
         id="SVGID_1_"
