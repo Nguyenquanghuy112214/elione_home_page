@@ -59,12 +59,12 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
 
       {/* <div className=" nav shadow-xl scroll-smooth"> */}
       <div className="nav sticky top-0 z-50">
-        <div className=" container grid grid-cols-12 pt-[10px] pb-[00px] ">
+        <div className=" container grid grid-cols-12 pt-[10px] pb-[28px] ">
           <div className="  sm:col-span-6 md:col-span-3">
             <Image
               onClick={() => router.push("/")}
               src={icons.logo}
-              className=" object-contain sm:w-[120px] md:w-[200px] cursor-pointer"
+              className=" object-contain sm:w-[120px] md:w-[170px] cursor-pointer"
               height={100}
               width={200}
               alt="logo"
@@ -76,7 +76,7 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
                 <li
                   onClick={() => router.push(item?.path ? item?.path : "")}
                   className={cn(
-                    " group font-semibold uppercase cursor-pointer hover:text-secondary transition-all relative text-sm py-2 h-full flex items-center justify-center",
+                    " group font-semibold uppercase cursor-pointer hover:text-secondary transition-all relative text-sm py-2  flex items-center justify-center h-[40px]",
                     `${InterVF.className}`,
                     `${
                       (pathname === "/" && item.path === "/") ||
@@ -91,7 +91,7 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
                 >
                   {item?.title}
                   {!!item?.children && (
-                    <ul className=" shadow-md p-3 bg-white absolute left-0 top-[108%] text-black hover:text-secondary hover:border-secondary invisible opacity-0  group-hover:opacity-100 group-hover:visible transition-all  pl-3">
+                    <ul className="h-[30px] items-center flex bg-white absolute left-0 top-[95%] text-black invisible opacity-0 group-hover:opacity-100 group-hover:visible  transition-all  w-max before:absolute before:left-[-10px] before:bottom-0 before:h-[45px] before:w-[3px] before:bg-[#a8a6a6]">
                       {item.children.map((chi, i) => {
                         return (
                           <li
@@ -108,12 +108,21 @@ function Header({ dataContact }: { dataContact: Contact[] }) {
                                 (pathname === "/" && chi.path === "/") ||
                                 pathname === chi.path ||
                                 pathname?.startsWith(`${chi.path}/`)
-                                  ? "text-secondary"
+                                  ? "text-secondary "
                                   : ""
-                              }`
+                              }`,
+                              `${
+                                i > 0
+                                  ? "border-l-[3px]  border-solid border-[#ccc]"
+                                  : "!pl-0"
+                              }`,
+                              " px-3"
                             )}
                           >
-                            <Link className="" href={"/program"}>
+                            <Link
+                              className=" hover:text-secondary hover:border-secondary transition-all"
+                              href={"/program"}
+                            >
                               {chi.title}
                             </Link>
                           </li>
